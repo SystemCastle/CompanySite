@@ -29,11 +29,6 @@ import {
     Calendar,
     Play,
     Shield,
-    Linkedin,
-    Twitter,
-    Youtube,
-    Instagram,
-    Facebook,
     ChevronRight,
     Copy,
     Check

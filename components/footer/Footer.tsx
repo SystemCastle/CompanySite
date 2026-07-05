@@ -9,12 +9,6 @@ import {
     Phone,
     Mail,
     Send,
-    // Facebook,
-    Twitter,
-    Linkedin,
-    Youtube,
-    Instagram,
-    Github,
     ChevronRight,
     Sparkles,
     Heart,
@@ -51,9 +45,7 @@ export default function Footer() {
     };
 
     const socialLinks = [
-        // { icon: // Facebook, href: "#", label: "Facebook" },
         { icon: Timer, href: "#", label: "Twitter" },
-        // { icon: Link, href: "#", label: "LinkedIn" },
         { icon: Route, href: "#", label: "YouTube" },
         { icon: Star, href: "#", label: "Instagram" },
         { icon: Gift, href: "#", label: "GitHub" }

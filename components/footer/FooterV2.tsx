@@ -72,9 +72,7 @@ export default function FooterV2() {
     };
 
     const socialLinks = [
-        // { icon: Facebook, href: "#", label: "Facebook", color: "#1877f2" },
         { icon: Timer, href: "#", label: "Twitter", color: "#1da1f2" },
-        // { icon: Linkedin, href: "#", label: "LinkedIn", color: "#0a66c2" },
         { icon: Route, href: "#", label: "YouTube", color: "#ff0000" },
         { icon: Star, href: "#", label: "Instagram", color: "#e4405f" },
         { icon: Gift, href: "#", label: "GitHub", color: "#333" }
