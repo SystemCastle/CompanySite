@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import {
     ChevronRight,
@@ -11,18 +12,16 @@ import {
     Palette,
     Building2,
     Award,
-    Gift,
-    Star,
-    Timer,
-    Route
 } from "lucide-react";
+import { FaGithub, FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 export default function FooterV1() {
     const socialLinks = [
-        { icon: Timer, href: "#", label: "Twitter" },
-        { icon: Route, href: "#", label: "YouTube" },
-        { icon: Star, href: "#", label: "Instagram" },
-        { icon: Gift, href: "#", label: "GitHub" }
+        { icon: FaXTwitter, href: "#", label: "X", color: "text-white" },
+        { icon: FaYoutube, href: "#", label: "YouTube", color: "text-red-500" },
+        { icon: FaInstagram, href: "#", label: "Instagram", color: "text-pink-500" },
+        { icon: FaGithub, href: "#", label: "GitHub", color: "text-slate-100" }
     ];
 
     const services = [
@@ -79,9 +78,13 @@ export default function FooterV1() {
                     {/* Brand Column - 4 cols */}
                     <div className="col-span-2 lg:col-span-4 space-y-6">
                         <div className="flex items-center gap-3">
-                            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg shadow-indigo-500/25">
-                                <span className="text-white font-bold text-xl">N</span>
-                            </div>
+                            <Image
+                                src="/logo.jpeg"
+                                alt="System Castle"
+                                width={48}
+                                height={48}
+                                className="h-12 w-12 rounded-lg object-cover shadow-lg"
+                            />
                             <div>
                                 <h2 className="text-2xl font-bold tracking-tight">System Castle</h2>
                                 <p className="text-sm text-white/50">Software Agency</p>
@@ -110,7 +113,7 @@ export default function FooterV1() {
                                     className="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 transition-all border border-white/5 hover:border-indigo-500/30"
                                     aria-label={social.label}
                                 >
-                                    <social.icon className="w-4 h-4 text-white/60 hover:text-white transition-colors" />
+                                    <social.icon className={`w-4 h-4 ${social.color} transition-colors`} />
                                 </motion.a>
                             ))}
                         </div>

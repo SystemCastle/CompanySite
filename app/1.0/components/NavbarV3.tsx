@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import {
     ArrowRight,
@@ -59,7 +60,7 @@ const navLinks = [
 export default function NavbarV3() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [activeLink, setActiveLink] = useState("Services");
+    const [activeLink, setActiveLink] = useState("");
 
     useEffect(() => {
         const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -82,6 +83,49 @@ export default function NavbarV3() {
         return () => window.removeEventListener("resize", handleResize);
     }, [isMobileMenuOpen]);
 
+    useEffect(() => {
+        const sectionLinks = navLinks
+            .map((link) => {
+                const hashIndex = link.href.indexOf("#");
+                return hashIndex >= 0
+                    ? { label: link.label, id: link.href.slice(hashIndex + 1) }
+                    : null;
+            })
+            .filter((link): link is { label: string; id: string } => Boolean(link));
+
+        const sectionElements = sectionLinks
+            .map((link) => {
+                const element = document.getElementById(link.id);
+                return element ? { ...link, element } : null;
+            })
+            .filter((section): section is { label: string; id: string; element: HTMLElement } => Boolean(section));
+
+        if (!sectionElements.length) return;
+
+        const updateActiveLink = () => {
+            const headerOffset = 90;
+            const viewportAnchor = window.scrollY + headerOffset;
+            let currentLabel = "";
+
+            for (const section of sectionElements) {
+                if (section.element.offsetTop <= viewportAnchor) {
+                    currentLabel = section.label;
+                }
+            }
+
+            setActiveLink(currentLabel);
+        };
+
+        updateActiveLink();
+        window.addEventListener("scroll", updateActiveLink, { passive: true });
+        window.addEventListener("resize", updateActiveLink);
+
+        return () => {
+            window.removeEventListener("scroll", updateActiveLink);
+            window.removeEventListener("resize", updateActiveLink);
+        };
+    }, []);
+
     return (
         <header
             className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled
@@ -93,9 +137,19 @@ export default function NavbarV3() {
                 <div className="flex items-center justify-between h-12 lg:h-14">
                     <Link
                         href="/1.0"
-                        className="font-bold text-lg tracking-tight bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent transition-opacity hover:opacity-80"
+                        className="flex items-center gap-2 transition-opacity hover:opacity-85"
                     >
-                        System Castle
+                        <Image
+                            src="/logo.jpeg"
+                            alt="System Castle"
+                            width={34}
+                            height={34}
+                            className="h-8 w-8 rounded-md object-cover shadow-sm"
+                            priority
+                        />
+                        <span className="font-bold text-lg tracking-tight bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                            System Castle
+                        </span>
                     </Link>
 
                     <nav className="hidden lg:flex items-center gap-0.5">
@@ -104,8 +158,6 @@ export default function NavbarV3() {
                                 <Link
                                     href={link.href}
                                     onClick={() => setActiveLink(link.label)}
-                                    onMouseEnter={() => setActiveLink(link.label)}
-                                    onFocus={() => setActiveLink(link.label)}
                                     className={`nav-link px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-1 ${activeLink === link.label
                                         ? "text-indigo-600 bg-indigo-50/70"
                                         : "text-slate-600 hover:text-indigo-600 hover:bg-indigo-50/50"
