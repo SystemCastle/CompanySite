@@ -44,7 +44,6 @@ export async function submitContactFormWithWeb3Forms(payload: ContactFormPayload
     formData.append("name", payload.name);
     formData.append("email", payload.email);
     formData.append("phone", payload.phone);
-    formData.append("company", payload.company || "Not provided");
     formData.append("message", payload.message);
     formData.append("botcheck", "");
 
