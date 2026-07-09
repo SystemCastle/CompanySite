@@ -39,7 +39,7 @@ export default function AboutSectionV3() {
         },
         {
             icon: Building2,
-            value: "4",
+            value: "6",
             label: "Verticals",
             gradient: "from-emerald-500 to-teal-600"
         }
@@ -224,7 +224,7 @@ export default function AboutSectionV3() {
                                 <Building2 className="w-5 h-5 text-white" />
                             </div>
                             <div>
-                                <h3 className="text-base lg:text-lg font-bold text-slate-800">4 Verticals</h3>
+                                <h3 className="text-base lg:text-lg font-bold text-slate-800">{verticals.length} Verticals</h3>
                                 <p className="text-xs text-slate-500">Industries we serve</p>
                             </div>
                         </div>
