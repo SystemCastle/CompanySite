@@ -14,6 +14,10 @@ import {
     Database,
     Smartphone,
     Wifi,
+    Book,
+    Car,
+    UsersRound,
+    Hospital,
 } from "lucide-react";
 
 export default function AboutSectionV3() {
@@ -52,16 +56,11 @@ export default function AboutSectionV3() {
     const verticals = [
         { name: "Telco", icon: Wifi, color: "indigo" },
         { name: "Fintech", icon: Smartphone, color: "pink" },
-        { name: "Energy", icon: Zap, color: "amber" },
-        { name: "BFSI", icon: Database, color: "cyan" }
+        { name: "Citizen Services (G2C)", icon: UsersRound, color: "amber" },
+        { name: "HealthTech", icon: Hospital, color: "red" },
+        { name: "EdTech", icon: Book, color: "green" },
+        { name: "Transportation", icon: Car, color: "gray" }
     ];
-
-    // const timeline = [
-    //     { year: "2020", label: "Founded", icon: Rocket, description: "Started our journey in automation" },
-    //     { year: "2022", label: "Expansion", icon: Globe, description: "Reached 10+ countries" },
-    //     { year: "2024", label: "Growth", icon: TrendingUp, description: "1000+ processes automated" },
-    //     { year: "2030", label: "Vision", icon: Target, description: "Leading authority in digital transformation" }
-    // ];
 
     return (
         <section ref={sectionRef} className="relative min-h-screen lg:h-screen bg-white overflow-visible lg:overflow-hidden flex items-center">
@@ -122,9 +121,12 @@ export default function AboutSectionV3() {
                         </span>
                     </h2>
                     <p className="mt-3 text-sm sm:text-base lg:text-base text-slate-600 max-w-xl lg:max-w-2xl mx-auto leading-relaxed">
-                        Redefining business efficiency through Intelligent Automation. Optimizing value delivery, fueling growth, and elevating customer engagement.
+                        An ecosystem of telecom expertise and software innovation, built to solve your toughest digital challenges.
                     </p>
                 </motion.div>
+
+                <div className="pb-3" />
+
 
                 {/* Stats Grid - Hexagon Style */}
                 <motion.div
@@ -162,6 +164,9 @@ export default function AboutSectionV3() {
                         );
                     })}
                 </motion.div>
+
+                <div className="pb-5" />
+
 
                 {/* Horizontals & Verticals - Side by Side */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
@@ -223,14 +228,16 @@ export default function AboutSectionV3() {
                                 <p className="text-xs text-slate-500">Industries we serve</p>
                             </div>
                         </div>
-                        <div className="grid grid-cols-2 gap-2.5 lg:gap-2">
+                        <div className="grid grid-cols-3 gap-2.5 lg:gap-2">
                             {verticals.map((item, index) => {
                                 const Icon = item.icon;
                                 const colorMap = {
                                     indigo: "from-indigo-500 to-purple-600",
                                     pink: "from-pink-500 to-rose-600",
                                     amber: "from-amber-500 to-orange-600",
-                                    cyan: "from-cyan-500 to-blue-600"
+                                    red: "from-red-500 to-rose-600",
+                                    green: "from-green-500 to-emerald-600",
+                                    gray: "from-gray-500 to-slate-600",
                                 };
                                 return (
                                     <motion.div
@@ -248,73 +255,6 @@ export default function AboutSectionV3() {
                         </div>
                     </motion.div>
                 </div>
-
-                {/* Timeline & Vision */}
-
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.6, delay: 0.4 }}
-                    className="grid grid-cols-3 gap-4"
-                >
-                    {/* Global Presence */}
-                    {/* <div className="bg-gradient-to-br from-indigo-50/80 to-purple-50/80 backdrop-blur-sm rounded-2xl p-4 border border-indigo-100/50">
-                        <div className="flex items-center gap-2 mb-2">
-                            <Globe className="w-5 h-5 text-indigo-600" />
-                            <h3 className="text-sm font-semibold text-slate-800">Global Reach</h3>
-                        </div>
-                        <p className="text-3xl font-bold text-indigo-600 leading-none">17</p>
-                        <p className="text-xs text-slate-600 mb-2">Countries across 7 regions</p>
-                        <div className="flex flex-wrap gap-1.5">
-                            {["Americas", "Caribbean", "Europe", "Africa", "Middle East", "South Asia", "Pacific"].map((region, i) => (
-                                <span key={i} className="px-2 py-0.5 bg-white/70 backdrop-blur-sm rounded-full text-[10px] text-slate-600 border border-slate-200/50">
-                                    {region}
-                                </span>
-                            ))}
-                        </div>
-                    </div> */}
-
-                    {/* Timeline */}
-                    {/* <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 border border-slate-200/60 shadow-lg col-span-2">
-                        <div className="flex items-center gap-2 mb-3">
-                            <Clock className="w-5 h-5 text-indigo-600" />
-                            <h3 className="text-sm font-semibold text-slate-800">Our Journey</h3>
-                        </div>
-                        <div className="relative">
-                            <div className="absolute left-4 top-0 bottom-0 w-px bg-gradient-to-b from-indigo-400 via-purple-400 to-pink-400" />
-                            <div className="grid grid-cols-2 gap-x-5 gap-y-3">
-                                {timeline.map((item, index) => {
-                                    const Icon = item.icon;
-                                    return (
-                                        <motion.div
-                                            key={index}
-                                            initial={{ opacity: 0, x: -20 }}
-                                            animate={isInView ? { opacity: 1, x: 0 } : {}}
-                                            transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-                                            className="flex gap-3"
-                                        >
-                                            <div className="relative flex-shrink-0">
-                                                <div className="w-7 h-7 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 shadow-lg shadow-indigo-500/20 flex items-center justify-center z-10 relative">
-                                                    <Icon className="w-3.5 h-3.5 text-white" />
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div className="flex items-center gap-2">
-                                                    <span className="text-xs font-bold text-indigo-600">{item.year}</span>
-                                                    <span className="text-sm font-semibold text-slate-800">{item.label}</span>
-                                                </div>
-                                                <p className="text-[11px] text-slate-500 leading-snug">{item.description}</p>
-                                            </div>
-                                        </motion.div>
-                                    );
-                                })}
-                            </div>
-                        </div>
-                    </div> */}
-                </motion.div>
-
-
-
             </div>
         </section>
     );

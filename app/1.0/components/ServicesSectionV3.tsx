@@ -82,7 +82,7 @@ function AdvancedTiltCard({
                     y: isHovered ? -6 : 0,
                 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
-                className="relative bg-white rounded-2xl p-8 border border-slate-200/60 shadow-lg hover:shadow-2xl transition-shadow duration-300 h-full flex flex-col overflow-hidden"
+                className="relative bg-white rounded-2xl pt-6 px-8 border border-slate-200/60 shadow-lg hover:shadow-2xl transition-shadow duration-300 h-full flex flex-col overflow-hidden"
                 style={{
                     transformStyle: "preserve-3d",
                 }}
@@ -115,8 +115,8 @@ function AdvancedTiltCard({
                 />
 
                 {/* Decorative number - background */}
-                <div className="absolute -right-4 -top-4 text-8xl font-bold text-slate-100/30 select-none">
-                    {String(index + 1).padStart(2, '0')}
+                <div className="absolute -right-4 -top-4 text-8xl font-bold text-gray-200/30 select-none">
+                    {String(index + 1).padStart(1, '0')}
                 </div>
 
                 {/* Content with 3D depth */}
@@ -125,14 +125,14 @@ function AdvancedTiltCard({
                     <motion.div
                         whileHover={{ scale: 1.05, rotateZ: 3 }}
                         whileTap={{ scale: 0.95 }}
-                        className={`w-14 h-14 rounded-xl bg-gradient-to-br ${gradient} shadow-lg flex items-center justify-center mb-5 relative flex-shrink-0`}
+                        className={`w-10 h-10 rounded-xl bg-gradient-to-br ${gradient} shadow-lg flex items-center justify-center mb-0 relative flex-shrink-0`}
                     >
                         <div className={`absolute inset-0 rounded-xl bg-gradient-to-br ${gradient} blur-xl opacity-30`} />
                         {children}
                         <div className="absolute -inset-1 rounded-xl border-2 border-white/10" />
                     </motion.div>
 
-                    <h3 className="text-lg font-semibold text-slate-900 mb-2 tracking-tight">
+                    <h3 className="pb-2 pt-4 text-lg font-semibold text-slate-900 tracking-tight">
                         {title}
                     </h3>
 
@@ -141,9 +141,9 @@ function AdvancedTiltCard({
                     </p>
 
                     {/* Stats Badge */}
-                    <div className="mt-3 flex items-center gap-3">
+                    <div className="mt-2 mb-4 flex items-center gap-3">
                         <div className="flex items-center gap-1.5">
-                            <span className="text-lg font-bold text-slate-800">{stats}</span>
+                            <span className="text-md font-bold text-slate-800">{stats}</span>
                             <span className="text-xs text-slate-500">{statLabel}</span>
                         </div>
                     </div>
@@ -165,59 +165,6 @@ function AdvancedTiltCard({
         </motion.div>
     );
 }
-
-// Parallax floating elements
-// function FloatingElements() {
-//     const elements = [
-//         // { icon: Users, x: 5, y: 80, delay: 0.5 },
-//     ];
-
-//     return (
-//         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-//             {elements.map((el, i) => {
-//                 const Icon = el.icon;
-//                 return (
-//                     <motion.div
-//                         key={i}
-//                         className="absolute hidden lg:block"
-//                         style={{ left: `${el.x}%`, top: `${el.y}%` }}
-//                         animate={{
-//                             y: [0, -20, 0],
-//                             x: [0, 10, 0],
-//                             rotate: [0, 5, 0],
-//                         }}
-//                         transition={{
-//                             duration: 6 + i * 2,
-//                             repeat: Infinity,
-//                             delay: el.delay,
-//                             ease: "easeInOut",
-//                         }}
-//                     >
-//                         <div className="bg-white/60 backdrop-blur-sm border border-slate-200/50 rounded-2xl p-3 shadow-xl">
-//                             <Icon className="w-5 h-5 text-indigo-500/60" />
-//                         </div>
-//                     </motion.div>
-//                 );
-//             })}
-//         </div>
-//     );
-// }
-
-// Animated background grid with dots
-// function BackgroundGrid() {
-//     return (
-//         <div className="absolute inset-0 pointer-events-none">
-//             <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
-//                 <defs>
-//                     <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-//                         <circle cx="2" cy="2" r="1.5" fill="rgba(99, 102, 241, 0.08)" />
-//                     </pattern>
-//                 </defs>
-//                 <rect width="100%" height="100%" fill="url(#grid)" />
-//             </svg>
-//         </div>
-//     );
-// }
 
 export default function ServicesSectionV3() {
     const services = [
@@ -278,10 +225,7 @@ export default function ServicesSectionV3() {
     ];
 
     return (
-        <section className="relative min-h-[115vh] flex items-center bg-gradient-to-b from-slate-50 via-white to-slate-50 overflow-hidden">
-            {/* Advanced Background */}
-            {/* <BackgroundGrid />
-            <FloatingElements /> */}
+        <section className="relative min-h-[100vh] flex items-center bg-gradient-to-b from-slate-50 via-white to-slate-50 overflow-hidden">
 
             {/* Sophisticated gradient orbs */}
             <div className="absolute inset-0 pointer-events-none">
@@ -309,20 +253,10 @@ export default function ServicesSectionV3() {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, ease: "easeOut" }}
-                    className="text-center mb-16"
+                    className="text-center mb-6"
                 >
-                    {/* Top badge */}
-                    <motion.div
-                        initial={{ scale: 0.9, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                        className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-slate-200/60 shadow-sm mb-6"
-                    >
-                        <div className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse" />
-                        <span className="text-sm font-medium text-slate-600">Our Services</span>
-                    </motion.div>
 
-                    <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight">
+                    <h2 className="text-4xl italic sm:text-5xl lg:text-5xl font-bold text-slate-900 leading-tight">
                         <span className="block">We Empower</span>
                         <span className="bg-gradient-to-r from-slate-900 to-slate-600 bg-clip-text text-transparent">
                             We Deliver
@@ -336,7 +270,7 @@ export default function ServicesSectionV3() {
                         className="mt-4 max-w-2xl mx-auto"
                     >
                         <p className="text-lg text-slate-600 leading-relaxed">
-                            System Castle is a leading Digital Transformation company focused on Telecom and Fintech solutions in the Middle East, Africa & Asia
+                            System Castle is an AI native global Digital Transformation services provider with experience in Telecom and software development domains in USA, Middle East & Asia.
                         </p>
                     </motion.div>
                 </motion.div>

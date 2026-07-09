@@ -57,14 +57,14 @@ const carouselItems = [...partners, ...partners];
 
 export default function ClientPartnerCarousel() {
     return (
-        <section className="relative overflow-hidden bg-white py-14 sm:py-16 lg:py-18">
+        <section className="relative overflow-hidden bg-white pt-6 pb-14 sm:pt-6 sm:pb-16 lg:pt-6 lg:pb-18">
             <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-white via-slate-50/70 to-white" />
 
             <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="mx-auto mb-8 max-w-2xl text-center">
-                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-indigo-600">
+                    {/* <p className="text-xs font-semibold uppercase tracking-[0.18em] text-indigo-600">
                         Clients & Partners
-                    </p>
+                    </p> */}
                     <h2 className="mt-3 text-2xl font-bold tracking-tight text-slate-950 sm:text-3xl">
                         Teams building with System Castle
                     </h2>

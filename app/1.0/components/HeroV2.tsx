@@ -52,11 +52,11 @@ export default function HeroV2() {
         <div className="copy">
           {/* <div className="mobile-proof">Strategy / UI UX / Engineering</div> */}
           <h1>
-            We turn ideas into
-            <br />
-            <span className="accent">powerful</span> software.
+            Digitally Transforming Businesses Through
+            {/* <br /> */}
+            <span className="accent"> AI-Powered Software Innovations</span> and Smart Communication Technologies.
           </h1>
-          <p>Strategy, design and engineering that helps you build better products, faster.</p>
+          <p>Scaling your business with code and connectivity</p>
           <div className="ctas">
             <a href="#contact" className="btn-primary">
               Start a Project <span aria-hidden>&rarr;</span>

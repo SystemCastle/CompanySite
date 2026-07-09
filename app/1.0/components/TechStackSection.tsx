@@ -61,14 +61,11 @@ const techRows: TechRow[] = [
 
 export default function TechStackSection() {
     return (
-        <section className="relative overflow-hidden bg-slate-50 py-16 sm:py-18 lg:py-20">
+        <section className="relative overflow-hidden bg-slate-50 py-12 sm:py-14 lg:py-10">
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white via-slate-50 to-white" />
 
             <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="mx-auto mb-10 max-w-2xl text-center">
-                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-indigo-600">
-                        Tech Stack
-                    </p>
                     <h2 className="mt-3 text-2xl font-bold tracking-tight text-slate-950 sm:text-3xl lg:text-4xl">
                         Technologies we build with
                     </h2>

@@ -27,104 +27,192 @@ interface Project {
     featured?: boolean;
 }
 
+// const projects: Project[] = [
+//     {
+//         id: 1,
+//         title: "4G Package Change Automation",
+//         category: "Telecom",
+//         description: "Revolutionized 4G package change procedure for a telecom giant using AI-powered automation, reducing errors and costs while improving customer satisfaction.",
+//         image: "/api/placeholder/800/500",
+//         tags: ["AI", "RPA", "Telecom"],
+//         metrics: [
+//             { label: "Faster Processing", value: "60%" },
+//             { label: "Cost Reduction", value: "40%" },
+//             { label: "Accuracy", value: "99.9%" }
+//         ],
+//         color: "from-blue-600 to-cyan-500",
+//         gradient: "from-blue-500/20 via-cyan-500/20 to-transparent",
+//         featured: true
+//     },
+//     {
+//         id: 2,
+//         title: "Account Closure System",
+//         category: "Fintech",
+//         description: "Overhauled a microfinance bank's account closure system, turning manual procedures into automated workflows for faster processing and fewer errors.",
+//         image: "/api/placeholder/800/500",
+//         tags: ["Fintech", "Automation", "Banking"],
+//         metrics: [
+//             { label: "Faster Closure", value: "70%" },
+//             { label: "Error Reduction", value: "50%" },
+//             { label: "Satisfaction", value: "95%" }
+//         ],
+//         color: "from-purple-600 to-pink-500",
+//         gradient: "from-purple-500/20 via-pink-500/20 to-transparent",
+//         featured: false
+//     },
+//     {
+//         id: 3,
+//         title: "AI Customer Support Platform",
+//         category: "E-commerce",
+//         description: "Implemented AI-powered customer support for an e-commerce platform, handling thousands of queries simultaneously with human-like accuracy.",
+//         image: "/api/placeholder/800/500",
+//         tags: ["AI", "Chatbot", "E-commerce"],
+//         metrics: [
+//             { label: "Faster Response", value: "80%" },
+//             { label: "Cost Savings", value: "45%" },
+//             { label: "Resolution Rate", value: "92%" }
+//         ],
+//         color: "from-emerald-600 to-teal-500",
+//         gradient: "from-emerald-500/20 via-teal-500/20 to-transparent",
+//         featured: false
+//     },
+//     {
+//         id: 4,
+//         title: "Digital Banking Platform",
+//         category: "Fintech",
+//         description: "Built a comprehensive digital banking platform with real-time transactions, biometric authentication, and AI-powered fraud detection.",
+//         image: "/api/placeholder/800/500",
+//         tags: ["Banking", "Security", "Mobile"],
+//         metrics: [
+//             { label: "Users Onboarded", value: "50K+" },
+//             { label: "Uptime", value: "99.99%" },
+//             { label: "Security Score", value: "A+" }
+//         ],
+//         color: "from-orange-600 to-amber-500",
+//         gradient: "from-orange-500/20 via-amber-500/20 to-transparent",
+//         featured: false
+//     },
+//     {
+//         id: 5,
+//         title: "Smart IoT Solution",
+//         category: "IoT",
+//         description: "Developed an end-to-end IoT solution for smart building management, integrating sensors, cloud analytics, and real-time monitoring dashboards.",
+//         image: "/api/placeholder/800/500",
+//         tags: ["IoT", "Cloud", "Analytics"],
+//         metrics: [
+//             { label: "Energy Savings", value: "35%" },
+//             { label: "Devices Connected", value: "10K+" },
+//             { label: "Response Time", value: "<100ms" }
+//         ],
+//         color: "from-red-600 to-rose-500",
+//         gradient: "from-red-500/20 via-rose-500/20 to-transparent",
+//         featured: false
+//     },
+//     {
+//         id: 6,
+//         title: "Healthcare Management System",
+//         category: "Healthcare",
+//         description: "Created a comprehensive healthcare management platform with patient records, appointment scheduling, telemedicine, and AI-powered diagnostics.",
+//         image: "/api/placeholder/800/500",
+//         tags: ["Healthcare", "AI", "Mobile"],
+//         metrics: [
+//             { label: "Patients Served", value: "100K+" },
+//             { label: "Efficiency Gain", value: "55%" },
+//             { label: "Accuracy", value: "96%" }
+//         ],
+//         color: "from-indigo-600 to-violet-500",
+//         gradient: "from-indigo-500/20 via-violet-500/20 to-transparent",
+//         featured: false
+//     }
+// ];
+
+
+
 const projects: Project[] = [
     {
         id: 1,
-        title: "4G Package Change Automation",
-        category: "Telecom",
-        description: "Revolutionized 4G package change procedure for a telecom giant using AI-powered automation, reducing errors and costs while improving customer satisfaction.",
+        title: "Women Empowerment Online Platform",
+        category: "Citizen Services (G2C)",
+        description: "An intelligent women's safety app featuring an IVR helpline, instant SOS, and automated police, media, and legal routing.",
         image: "/api/placeholder/800/500",
-        tags: ["AI", "RPA", "Telecom"],
+        tags: ["React JS", "Flutter", "Node JS", "SQL Server", "IVR System", "AWS"],
         metrics: [
-            { label: "Faster Processing", value: "60%" },
-            { label: "Cost Reduction", value: "40%" },
-            { label: "Accuracy", value: "99.9%" }
+            { label: "SOS Response Time", value: "<30s" },
+            { label: "Agencies Connected", value: "3+" },
+            { label: "Uptime", value: "99.9%" }
         ],
-        color: "from-blue-600 to-cyan-500",
-        gradient: "from-blue-500/20 via-cyan-500/20 to-transparent",
+        color: "from-pink-600 to-rose-500",
+        gradient: "from-pink-500/20 via-rose-500/20 to-transparent",
         featured: true
     },
     {
         id: 2,
-        title: "Account Closure System",
-        category: "Fintech",
-        description: "Overhauled a microfinance bank's account closure system, turning manual procedures into automated workflows for faster processing and fewer errors.",
+        title: "Campus Management System",
+        category: "EdTech",
+        description: "A unified campus management platform integrating student, staff, and institutional ERP portals.",
         image: "/api/placeholder/800/500",
-        tags: ["Fintech", "Automation", "Banking"],
+        tags: ["ASP.NET Core", "Entity Framework Core", "Oracle Database", "Bootstrap / jQuery / AJAX", "Crystal Reports / RDLC"],
         metrics: [
-            { label: "Faster Closure", value: "70%" },
-            { label: "Error Reduction", value: "50%" },
-            { label: "Satisfaction", value: "95%" }
+            { label: "Modules Integrated", value: "10+" },
+            { label: "Process Efficiency", value: "50%" },
+            { label: "Users Onboarded", value: "5K+" }
         ],
-        color: "from-purple-600 to-pink-500",
-        gradient: "from-purple-500/20 via-pink-500/20 to-transparent",
+        color: "from-green-600 to-emerald-500",
+        gradient: "from-green-500/20 via-emerald-500/20 to-transparent",
         featured: false
     },
     {
         id: 3,
-        title: "AI Customer Support Platform",
-        category: "E-commerce",
-        description: "Implemented AI-powered customer support for an e-commerce platform, handling thousands of queries simultaneously with human-like accuracy.",
+        title: "Safe City Project",
+        category: "Citizen Services (G2C)",
+        description: "The ultimate command & control platform for an integrated emergency response system — Police-15, Rescue 1122, and a unified inter-agency communication and radio dispatch framework.",
         image: "/api/placeholder/800/500",
-        tags: ["AI", "Chatbot", "E-commerce"],
+        tags: ["SQL Server", "Oracle DBMS", "NoSQL", "SAN/NAS Storage", "Flutter / React Native", "Java / Python / Node.js"],
         metrics: [
-            { label: "Faster Response", value: "80%" },
-            { label: "Cost Savings", value: "45%" },
-            { label: "Resolution Rate", value: "92%" }
+            { label: "Agencies Unified", value: "Multi-Agency" },
+            { label: "Real-Time Dispatch", value: "24/7" },
+            { label: "Data Reliability", value: "High Availability" }
         ],
-        color: "from-emerald-600 to-teal-500",
-        gradient: "from-emerald-500/20 via-teal-500/20 to-transparent",
-        featured: false
+        color: "from-blue-600 to-indigo-500",
+        gradient: "from-blue-500/20 via-indigo-500/20 to-transparent",
+        featured: true
     },
     {
         id: 4,
-        title: "Digital Banking Platform",
-        category: "Fintech",
-        description: "Built a comprehensive digital banking platform with real-time transactions, biometric authentication, and AI-powered fraud detection.",
+        title: "AI-Powered Road Maintenance System",
+        category: "Transportation",
+        description: "Next-gen AI and data analytics for smart road monitoring, infrastructure preservation, and maintenance.",
         image: "/api/placeholder/800/500",
-        tags: ["Banking", "Security", "Mobile"],
+        tags: ["YOLOv6", "Python", "AI", "Computer Vision"],
         metrics: [
-            { label: "Users Onboarded", value: "50K+" },
-            { label: "Uptime", value: "99.99%" },
-            { label: "Security Score", value: "A+" }
+            { label: "Detection Accuracy", value: "High" },
+            { label: "Monitoring", value: "Real-Time" },
+            { label: "Maintenance Planning", value: "Automated" }
         ],
-        color: "from-orange-600 to-amber-500",
-        gradient: "from-orange-500/20 via-amber-500/20 to-transparent",
+        color: "from-gray-600 to-slate-500",
+        gradient: "from-gray-500/20 via-slate-500/20 to-transparent",
         featured: false
     },
     {
         id: 5,
-        title: "Smart IoT Solution",
-        category: "IoT",
-        description: "Developed an end-to-end IoT solution for smart building management, integrating sensors, cloud analytics, and real-time monitoring dashboards.",
+        title: "Healthcare Management Information System",
+        category: "HealthTech",
+        description: "An end-to-end healthcare platform unifying patient records, clinical workflows, doctor scheduling, and medical billing.",
         image: "/api/placeholder/800/500",
-        tags: ["IoT", "Cloud", "Analytics"],
+        tags: ["ASP.NET Core", "REST APIs", "Entity Framework Core", "SQL Server", "Responsive UI"],
         metrics: [
-            { label: "Energy Savings", value: "35%" },
-            { label: "Devices Connected", value: "10K+" },
-            { label: "Response Time", value: "<100ms" }
+            { label: "Patient Records Digitized", value: "Full EHR" },
+            { label: "Scheduling Efficiency", value: "60%" },
+            { label: "Billing Accuracy", value: "99%" }
         ],
-        color: "from-red-600 to-rose-500",
-        gradient: "from-red-500/20 via-rose-500/20 to-transparent",
-        featured: false
-    },
-    {
-        id: 6,
-        title: "Healthcare Management System",
-        category: "Healthcare",
-        description: "Created a comprehensive healthcare management platform with patient records, appointment scheduling, telemedicine, and AI-powered diagnostics.",
-        image: "/api/placeholder/800/500",
-        tags: ["Healthcare", "AI", "Mobile"],
-        metrics: [
-            { label: "Patients Served", value: "100K+" },
-            { label: "Efficiency Gain", value: "55%" },
-            { label: "Accuracy", value: "96%" }
-        ],
-        color: "from-indigo-600 to-violet-500",
-        gradient: "from-indigo-500/20 via-violet-500/20 to-transparent",
+        color: "from-red-600 to-orange-500",
+        gradient: "from-red-500/20 via-orange-500/20 to-transparent",
         featured: false
     }
 ];
+
+
+
 
 const particles = Array.from({ length: 30 }, (_, i) => ({
     id: i,
@@ -190,7 +278,7 @@ export default function ProjectsSectionV2() {
     };
 
     return (
-        <section className="relative py-24 bg-gradient-to-b from-slate-50 via-white to-slate-50 overflow-hidden">
+        <section className="relative py-14 bg-gradient-to-b from-slate-50 via-white to-slate-50 overflow-hidden">
             {/* Background Elements */}
             <div className="absolute inset-0">
                 <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-indigo-50/30 via-purple-50/20 to-transparent" />
@@ -206,12 +294,9 @@ export default function ProjectsSectionV2() {
                     transition={{ duration: 0.7 }}
                     className="text-center mb-16"
                 >
-                    <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-slate-200/60 shadow-sm mb-4">
-                        <Sparkles className="w-4 h-4 text-indigo-600" />
-                        <span className="text-sm font-medium text-slate-600">Our Portfolio</span>
-                    </div>
+
                     <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900">
-                        <span className="block">Featured</span>
+                        <span className="">Featured </span>
                         <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
                             Projects
                         </span>

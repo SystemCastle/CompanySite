@@ -2,7 +2,6 @@ export type ContactFormPayload = {
     name: string;
     email: string;
     phone: string;
-    company: string;
     message: string;
 };
 
@@ -14,6 +13,24 @@ type Web3FormsResponse = {
 const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
 
 export async function submitContactForm(payload: ContactFormPayload) {
+    const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+    });
+
+    const result = (await response.json()) as Web3FormsResponse;
+
+    if (!response.ok || !result.success) {
+        throw new Error(result.message || "Unable to send your message right now.");
+    }
+
+    return result;
+}
+
+export async function submitContactFormWithWeb3Forms(payload: ContactFormPayload) {
     const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
 
     if (!accessKey) {

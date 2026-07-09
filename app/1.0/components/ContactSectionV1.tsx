@@ -8,7 +8,6 @@ export default function ContactSectionV1() {
         name: "",
         email: "",
         phone: "",
-        company: "",
         message: ""
     });
 
@@ -25,7 +24,7 @@ export default function ContactSectionV1() {
             await submitContactForm(formData);
             setIsSubmitting(false);
             setIsSubmitted(true);
-            setFormData({ name: "", email: "", phone: "", company: "", message: "" });
+            setFormData({ name: "", email: "", phone: "", message: "" });
             setTimeout(() => setIsSubmitted(false), 3000);
         } catch (error) {
             setIsSubmitting(false);
@@ -44,35 +43,19 @@ export default function ContactSectionV1() {
         {
             title: "SYSTEM CASTLE SOLUTIONS LLC",
             address: "DeskCo, 3rd floor, 101 East AKM Fazl-ul-Haq Rd, Block I G 7/2 Blue Area, Islamabad",
-            phone: "+971-4-3927725",
+            phone: "051-xxxxxx",
             email: "info@systemcastle.com",
             flag: "🇦🇪"
         },
-        // {
-        //     title: "SYSTEM CASTLE SWEDEN AB",
-        //     address: "Impact Hub Stockholm\nRegeringsgatan 65\n111 56 Stockholm\nSweden",
-        //     phone: "",
-        //     email: "info@systemcastle.com",
-        //     icon: Globe,
-        //     flag: "🇸🇪"
-        // },
-        // {
-        //     title: "SYSTEM CASTLE",
-        //     address: "Plot 324, Street no 4,\nIndustrial Area, I-9/3, Islamabad,\nPakistan",
-        //     phone: "+92-51-8444567",
-        //     email: "info@systemcastle.com",
-        //     icon: MapPin,
-        //     flag: "🇵🇰"
-        // }
     ];
 
     return (
-        <section className="py-20 bg-white">
+        <section className="py-14 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                     {/* Left - Form */}
                     <div className="order-2 lg:order-1 bg-white rounded-2xl p-8">
-                        <h2 className="mb-8 text-4xl sm:text-5xl font-bold text-slate-900">
+                        <h2 className="mb-8 text-3xl sm:text-4xl font-bold text-slate-900">
                             CONTACT US
                         </h2>
 
@@ -124,20 +107,6 @@ export default function ContactSectionV1() {
 
                             <div>
                                 <label className="block text-sm font-medium text-slate-700 mb-2">
-                                    ENTER COMPANY NAME
-                                </label>
-                                <input
-                                    type="text"
-                                    name="company"
-                                    value={formData.company}
-                                    onChange={handleChange}
-                                    className="w-full px-4 py-3 bg-white text-slate-900 placeholder:text-slate-400 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all outline-none"
-                                    placeholder="Company name"
-                                />
-                            </div>
-
-                            <div>
-                                <label className="block text-sm font-medium text-slate-700 mb-2">
                                     WRITE YOUR MESSAGE HERE...
                                 </label>
                                 <textarea
@@ -174,9 +143,9 @@ export default function ContactSectionV1() {
                     </div>
 
                     {/* Right - Map & Locations */}
-                    <div className="order-1 lg:order-2 space-y-6">
+                    <div className="order-1 lg:order-2 space-y-6 lg:mt-16">
                         {/* Map */}
-                        <div className="bg-slate-100 rounded-2xl overflow-hidden h-[300px] relative">
+                        <div className="bg-slate-100 rounded-2xl overflow-hidden h-[300px] sm:h-[300px] lg:h-[350px] relative">
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6637.965118736111!2d73.05723859999999!3d33.7094002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfbf29e7da8c85%3A0x3930b45b7bc1b78c!2sDeskCo%20%7C%20Coworking%20Space!5e0!3m2!1sen!2s!4v1783407069686!5m2!1sen!2s"
                                 width="100%"
