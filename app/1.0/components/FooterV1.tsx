@@ -45,7 +45,6 @@ export default function FooterV1() {
         { label: "Case Studies", href: "#" },
         { label: "Portfolio", href: "#" },
         { label: "Testimonials", href: "#" },
-        { label: "FAQ", href: "#" },
         { label: "Support", href: "#" }
     ];
 

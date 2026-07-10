@@ -1,64 +1,53 @@
-"use client";
-
-type TechItem = {
-    name: string;
-    logoSrc: string;
-};
-
-type TechRow = {
-    title: string;
-    items: TechItem[];
-    reverse?: boolean;
-};
-
-const iconUrl = (slug: string) => `https://cdn.simpleicons.org/${slug}`;
+import { iconUrl } from '../utils/iconUtils';
+import MarqueeTrack from './MarqueeTrack';
+import styles from './TechStackSection.module.css'
+import { TechRow } from './types';
 
 const techRows: TechRow[] = [
     {
         title: "Languages",
         items: [
-            { name: "JavaScript", logoSrc: iconUrl("javascript") },
-            { name: "TypeScript", logoSrc: iconUrl("typescript") },
-            { name: "Python", logoSrc: iconUrl("python") },
-            { name: "Java", logoSrc: iconUrl("openjdk") },
-            { name: "C++", logoSrc: iconUrl("cplusplus") },
-            { name: "C#", logoSrc: iconUrl("dotnet") },
-            { name: "Go", logoSrc: iconUrl("go") },
-            { name: "PHP", logoSrc: iconUrl("php") },
-            { name: "Dart", logoSrc: iconUrl("dart") },
+            { name: "JavaScript", logoSrc: "javascript" },
+            { name: "TypeScript", logoSrc: "typescript" },
+            { name: "Python", logoSrc: "python" },
+            { name: "Java", logoSrc: "openjdk" },
+            { name: "C++", logoSrc: "cplusplus" },
+            { name: "C#", logoSrc: "dotnet" },
+            { name: "Go", logoSrc: "go" },
+            { name: "PHP", logoSrc: "php" },
+            { name: "Dart", logoSrc: "dart" },
         ],
     },
     {
         title: "Frameworks",
         reverse: true,
         items: [
-            { name: "React", logoSrc: iconUrl("react") },
-            { name: "Next.js", logoSrc: iconUrl("nextdotjs") },
-            { name: "Node.js", logoSrc: iconUrl("nodedotjs") },
-            { name: "Express", logoSrc: iconUrl("express") },
-            { name: "Django", logoSrc: iconUrl("django") },
-            { name: "Spring", logoSrc: iconUrl("spring") },
-            { name: "Angular", logoSrc: iconUrl("angular") },
-            { name: "Vue", logoSrc: iconUrl("vuedotjs") },
-            { name: "Flutter", logoSrc: iconUrl("flutter") },
-            { name: "Tailwind", logoSrc: iconUrl("tailwindcss") },
+            { name: "React", logoSrc: "react" },
+            { name: "Next.js", logoSrc: "nextdotjs" },
+            { name: "Node.js", logoSrc: "nodedotjs" },
+            { name: "Express", logoSrc: "express" },
+            { name: "Django", logoSrc: "django" },
+            { name: "Spring", logoSrc: "spring" },
+            { name: "Angular", logoSrc: "angular" },
+            { name: "Vue", logoSrc: "vuedotjs" },
+            { name: "Flutter", logoSrc: "flutter" },
+            { name: "Tailwind", logoSrc: "tailwindcss" },
         ],
     },
     {
         title: "Databases",
         items: [
-            { name: "PostgreSQL", logoSrc: iconUrl("postgresql") },
-            { name: "MySQL", logoSrc: iconUrl("mysql") },
-            { name: "MongoDB", logoSrc: iconUrl("mongodb") },
-            { name: "Redis", logoSrc: iconUrl("redis") },
-            { name: "Firebase", logoSrc: iconUrl("firebase") },
-            { name: "Supabase", logoSrc: iconUrl("supabase") },
-            { name: "SQLite", logoSrc: iconUrl("sqlite") },
-            { name: "MariaDB", logoSrc: iconUrl("mariadb") },
+            { name: "PostgreSQL", logoSrc: "postgresql" },
+            { name: "MySQL", logoSrc: "mysql" },
+            { name: "MongoDB", logoSrc: "mongodb" },
+            { name: "Redis", logoSrc: "redis" },
+            { name: "Firebase", logoSrc: "firebase" },
+            { name: "Supabase", logoSrc: "supabase" },
+            { name: "SQLite", logoSrc: "sqlite" },
+            { name: "MariaDB", logoSrc: "mariadb" },
         ],
     },
 ];
-
 export default function TechStackSection() {
     return (
         <section className="relative overflow-hidden bg-slate-50 py-12 sm:py-14 lg:py-10">
@@ -83,150 +72,20 @@ export default function TechStackSection() {
                                 </h3>
                             </div>
 
-                            <div className="marquee">
-                                <div className="fade fade-left" />
-                                <div className="fade fade-right" />
+                            <div className={styles.marquee}>
+                                <div className={`${styles.fade} ${styles['fade-left']}`} />
+                                <div className={`${styles.fade} ${styles['fade-right']}`} />
 
-                                <div className={`marquee-track ${row.reverse ? "reverse" : ""}`}>
-                                    {[...row.items, ...row.items].map((item, index) => (
-                                        <div className="tech-item" key={`${row.title}-${item.name}-${index}`}>
-                                            <span
-                                                className="tech-logo"
-                                                role="img"
-                                                aria-label={`${item.name} logo`}
-                                                style={{ backgroundImage: `url(${item.logoSrc})` }}
-                                            />
-                                            <span className="tech-name">{item.name}</span>
-                                        </div>
-                                    ))}
-                                </div>
+                                <MarqueeTrack
+                                    items={row.items}
+                                    rowTitle={row.title}
+                                    reverse={row.reverse}
+                                />
                             </div>
                         </div>
                     ))}
                 </div>
             </div>
-
-            <style jsx>{`
-                .marquee {
-                    position: relative;
-                    overflow: hidden;
-                    padding-block: 4px;
-                }
-
-                .fade {
-                    position: absolute;
-                    top: 0;
-                    bottom: 0;
-                    z-index: 2;
-                    width: 84px;
-                    pointer-events: none;
-                }
-
-                .fade-left {
-                    left: 0;
-                    background: linear-gradient(90deg, #f8fafc 0%, rgba(248, 250, 252, 0) 100%);
-                }
-
-                .fade-right {
-                    right: 0;
-                    background: linear-gradient(270deg, #f8fafc 0%, rgba(248, 250, 252, 0) 100%);
-                }
-
-                .marquee-track {
-                    display: flex;
-                    width: max-content;
-                    gap: 34px;
-                    animation: tech-scroll 32s linear infinite;
-                }
-
-                .marquee-track.reverse {
-                    animation-direction: reverse;
-                    animation-duration: 36s;
-                }
-
-                .marquee:hover .marquee-track {
-                    animation-play-state: paused;
-                }
-
-                .tech-item {
-                    width: 96px;
-                    flex: 0 0 auto;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    gap: 10px;
-                    text-align: center;
-                }
-
-                .tech-logo {
-                    width: 64px;
-                    height: 64px;
-                    display: block;
-                    border-radius: 999px;
-                    background-color: #ffffff;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    background-size: 32px 32px;
-                    box-shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
-                }
-
-                .tech-name {
-                    color: #334155;
-                    font-size: 13px;
-                    font-weight: 600;
-                    line-height: 1.2;
-                    white-space: nowrap;
-                }
-
-                @keyframes tech-scroll {
-                    from {
-                        transform: translateX(0);
-                    }
-                    to {
-                        transform: translateX(calc(-50% - 17px));
-                    }
-                }
-
-                @media (max-width: 640px) {
-                    .fade {
-                        width: 36px;
-                    }
-
-                    .marquee-track {
-                        gap: 24px;
-                        animation-duration: 26s;
-                    }
-
-                    .marquee-track.reverse {
-                        animation-duration: 30s;
-                    }
-
-                    .tech-item {
-                        width: 78px;
-                        gap: 8px;
-                    }
-
-                    .tech-logo {
-                        width: 56px;
-                        height: 56px;
-                        background-size: 28px 28px;
-                    }
-
-                    .tech-name {
-                        font-size: 12px;
-                    }
-                }
-
-                @media (prefers-reduced-motion: reduce) {
-                    .marquee-track,
-                    .marquee-track.reverse {
-                        width: 100%;
-                        flex-wrap: wrap;
-                        justify-content: center;
-                        animation: none;
-                    }
-                }
-            `}</style>
         </section>
     );
 }

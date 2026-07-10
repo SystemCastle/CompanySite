@@ -43,7 +43,7 @@ export default function ContactSectionV1() {
         {
             title: "SYSTEM CASTLE SOLUTIONS LLC",
             address: "DeskCo, 3rd floor, 101 East AKM Fazl-ul-Haq Rd, Block I G 7/2 Blue Area, Islamabad",
-            phone: "051-xxxxxx",
+            phone: "+1-925-214-9198 , 051-8899526",
             email: "info@systemcastle.com",
             flag: "🇦🇪"
         },

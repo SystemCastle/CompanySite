@@ -2,16 +2,7 @@
 
 import { useRef, useState } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import {
-    Globe,
-    Smartphone,
-    Monitor,
-    Wifi,
-    Shield,
-    LifeBuoy,
-    Users
-} from "lucide-react";
-
+import Image from "next/image";
 
 // Advanced 3D Tilt Card with Reflection
 function AdvancedTiltCard({
@@ -20,16 +11,12 @@ function AdvancedTiltCard({
     gradient,
     title,
     description,
-    stats,
-    statLabel
 }: {
     children: React.ReactNode;
     index: number;
     gradient: string;
     title: string;
     description: string;
-    stats: string;
-    statLabel: string;
 }) {
     const ref = useRef<HTMLDivElement>(null);
     const [isHovered, setIsHovered] = useState(false);
@@ -126,9 +113,9 @@ function AdvancedTiltCard({
                     <motion.div
                         whileHover={{ scale: 1.05, rotateZ: 3 }}
                         whileTap={{ scale: 0.95 }}
-                        className={`w-10 h-10 rounded-xl bg-gradient-to-br ${gradient} shadow-lg flex items-center justify-center mb-0 relative flex-shrink-0`}
+                        className={`w-10 h-10 rounded-xl bg-gradient-to-br flex items-center justify-center mb-0 relative flex-shrink-0`}
                     >
-                        <div className={`absolute inset-0 rounded-xl bg-gradient-to-br ${gradient} blur-xl opacity-30`} />
+                        <div className={`absolute inset-0 rounded-xl bg-gradient-to-br blur-xl opacity-30`} />
                         {children}
                         <div className="absolute -inset-1 rounded-xl border-2 border-white/10" />
                     </motion.div>
@@ -167,61 +154,49 @@ function AdvancedTiltCard({
     );
 }
 
-export default function ServicesSectionV3() {
+export default function ServicesSectionV30() {
     const services = [
         {
-            icon: Globe,
+            iconSrc: "/icons/digitalization.webp",
             title: "Digital Solutions",
             description: "From strategy to deployment, we deliver complete digital solutions to streamline operations and enhance customer experiences.",
             gradient: "from-blue-600 to-cyan-500",
             delay: 0.1,
-            stats: "94%",
-            statLabel: "Success Rate"
         },
         {
-            icon: Smartphone,
+            iconSrc: "/icons/mobile.webp",
             title: "Mobile Development",
             description: "Native and cross-platform apps tailored for intuitive mobile experience.",
             gradient: "from-emerald-600 to-teal-500",
             delay: 0.2,
-            stats: "150+",
-            statLabel: "Apps Delivered"
         },
         {
-            icon: Monitor,
+            iconSrc: "/icons/web.webp",
             title: "Web Solutions",
             description: "Modern web technologies powering your digital success, engineered for performance and innovation.",
             gradient: "from-purple-600 to-pink-500",
             delay: 0.3,
-            stats: "200+",
-            statLabel: "Websites Launched"
         },
         {
-            icon: Wifi,
+            iconSrc: "/icons/telecom.webp",
             title: "Telecom Services",
             description: "Enabling next-generation connectivity with Advanced BSS solutions to enhance customer experience and business performance.",
             gradient: "from-orange-600 to-amber-500",
             delay: 0.4,
-            stats: "50+",
-            statLabel: "Telecom Partners"
         },
         {
-            icon: Shield,
+            iconSrc: "/icons/security.webp",
             title: "IT & Security Services",
             description: "From consultancy to complex integrations, we've got you covered with Smart IT and security solutions, to safeguard your digital ecosystem.",
             gradient: "from-red-600 to-rose-500",
             delay: 0.5,
-            stats: "99.9%",
-            statLabel: "Uptime Guarantee"
         },
         {
-            icon: LifeBuoy,
+            iconSrc: "/icons/support.webp",
             title: "Maintenance & Support",
             description: "24/7 support and proactive maintenance keep your systems running smoothly.",
             gradient: "from-indigo-600 to-violet-500",
             delay: 0.6,
-            stats: "24/7",
-            statLabel: "Support Available"
         },
     ];
 
@@ -274,6 +249,8 @@ export default function ServicesSectionV3() {
                             System Castle is an AI native global Digital Transformation services provider with experience in Telecom and software development domains in USA, Middle East & Asia.
                         </p>
                     </motion.div>
+
+
                 </motion.div>
 
                 {/* Services Grid - Advanced */}
@@ -291,31 +268,32 @@ export default function ServicesSectionV3() {
                     }}
                     className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
                 >
-                    {services.map((service, index) => {
-                        const Icon = service.icon;
-                        return (
-                            <motion.div
-                                key={index}
-                                variants={{
-                                    hidden: { opacity: 0, y: 30 },
-                                    visible: { opacity: 1, y: 0 },
-                                }}
-                                transition={{ duration: 0.6, ease: "easeOut" }}
-                                className="h-full"
+                    {services.map((service, index) => (
+                        <motion.div
+                            key={index}
+                            variants={{
+                                hidden: { opacity: 0, y: 30 },
+                                visible: { opacity: 1, y: 0 },
+                            }}
+                            transition={{ duration: 0.6, ease: "easeOut" }}
+                            className="h-full"
+                        >
+                            <AdvancedTiltCard
+                                index={index}
+                                gradient={service.gradient}
+                                title={service.title}
+                                description={service.description}
                             >
-                                <AdvancedTiltCard
-                                    index={index}
-                                    gradient={service.gradient}
-                                    title={service.title}
-                                    description={service.description}
-                                    stats={service.stats}
-                                    statLabel={service.statLabel}
-                                >
-                                    <Icon className="w-6 h-6 text-white relative z-10" />
-                                </AdvancedTiltCard>
-                            </motion.div>
-                        );
-                    })}
+                                <Image
+                                    src={service.iconSrc}
+                                    alt={`${service.title} icon`}
+                                    width={100}
+                                    height={100}
+                                    className="relative z-10 h-16 w-16 object-contain"
+                                />
+                            </AdvancedTiltCard>
+                        </motion.div>
+                    ))}
                 </motion.div>
 
             </div>

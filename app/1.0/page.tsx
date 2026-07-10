@@ -8,6 +8,7 @@ import NavbarV3 from './components/NavbarV3'
 import ProjectsSectionV2 from './components/ProjectsSectionV2'
 import ServicesSectionV3 from './components/ServicesSectionV3'
 import TechStackSection from './components/TechStackSection'
+import ServicesSectionV30 from './components/ServicesSectionV30'
 
 function page() {
   return (
