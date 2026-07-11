@@ -1,10 +1,7 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import HashNavLink from "./HashNavLink";
 import {
-    ChevronRight,
     Shield,
     Code2,
     Smartphone,
@@ -13,46 +10,26 @@ import {
     Building2,
     Award,
 } from "lucide-react";
-import { FaGithub, FaInstagram, FaYoutube } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
 
 export default function FooterV1() {
-    const socialLinks = [
-        { icon: FaXTwitter, href: "#", label: "X", color: "text-white" },
-        { icon: FaYoutube, href: "#", label: "YouTube", color: "text-red-500" },
-        { icon: FaInstagram, href: "#", label: "Instagram", color: "text-pink-500" },
-        { icon: FaGithub, href: "#", label: "GitHub", color: "text-slate-100" }
-    ];
-
     const services = [
-        { icon: Code2, label: "Web Development", href: "#" },
-        { icon: Smartphone, label: "Mobile Development", href: "#" },
-        { icon: Cloud, label: "Cloud & DevOps", href: "#" },
-        { icon: Palette, label: "UI/UX Design", href: "#" },
-        { icon: Shield, label: "IT & Security", href: "#" },
-        { icon: Building2, label: "Enterprise Solutions", href: "#" }
+        { icon: Code2, label: "Web Development", href: "/1.0#services" },
+        { icon: Smartphone, label: "Mobile Development", href: "/1.0#services" },
+        { icon: Cloud, label: "Cloud & DevOps", href: "/1.0#services" },
+        { icon: Shield, label: "IT & Security", href: "/1.0#services" },
+        { icon: Building2, label: "Enterprise Solutions", href: "/1.0#services" }
     ];
 
     const company = [
-        { label: "About Us", href: "#" },
-        { label: "Our Team", href: "#" },
-        { label: "Careers", href: "#" },
-        { label: "Blog", href: "#" },
-        { label: "Contact", href: "#" }
+        { label: "Home", href: "/1.0" },
+        { label: "About Us", href: "/1.0/#about" },
+        { label: "Contact", href: "/1.0#contact" }
     ];
 
     const resources = [
-        { label: "Case Studies", href: "#" },
-        { label: "Portfolio", href: "#" },
-        { label: "Testimonials", href: "#" },
-        { label: "Support", href: "#" }
+        { label: "Product", href: "/1.0#product" },
+        { label: "Partners", href: "/1.0#partners" }
     ];
-
-    // const locations = [
-    //     { flag: "🇦🇪", city: "Dubai", country: "UAE" },
-    //     { flag: "🇸🇪", city: "Stockholm", country: "Sweden" },
-    //     { flag: "🇵🇰", city: "Islamabad", country: "Pakistan" }
-    // ];
 
     return (
         <footer className="relative bg-slate-900 text-white overflow-hidden">
@@ -101,31 +78,6 @@ export default function FooterV1() {
                             </div>
                         </div>
 
-                        {/* Social Links */}
-                        <div className="flex gap-2">
-                            {socialLinks.map((social, index) => (
-                                <motion.a
-                                    key={index}
-                                    href={social.href}
-                                    whileHover={{ y: -3, scale: 1.1 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    className="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 transition-all border border-white/5 hover:border-indigo-500/30"
-                                    aria-label={social.label}
-                                >
-                                    <social.icon className={`w-4 h-4 ${social.color} transition-colors`} />
-                                </motion.a>
-                            ))}
-                        </div>
-
-                        {/* Locations */}
-                        {/* <div className="flex flex-wrap gap-3">
-                            {locations.map((location, index) => (
-                                <div key={index} className="flex items-center gap-2 bg-white/5 rounded-xl px-3 py-1.5 border border-white/5">
-                                    <span className="text-lg">{location.flag}</span>
-                                    <span className="text-xs text-white/70">{location.city}</span>
-                                </div>
-                            ))}
-                        </div> */}
                     </div>
 
                     {/* Services - 3 cols */}
@@ -136,14 +88,13 @@ export default function FooterV1() {
                         <ul className="space-y-2.5">
                             {services.map((service, index) => (
                                 <li key={index}>
-                                    <Link
+                                    <HashNavLink
                                         href={service.href}
                                         className="flex items-center gap-2 text-white/60 hover:text-white transition-all group"
                                     >
                                         <service.icon className="w-3.5 h-3.5 text-indigo-400" />
                                         <span className="text-sm">{service.label}</span>
-                                        <ChevronRight className="w-3.5 h-3.5 ml-auto opacity-0 group-hover:opacity-100 transition-opacity group-hover:translate-x-1" />
-                                    </Link>
+                                    </HashNavLink>
                                 </li>
                             ))}
                         </ul>
@@ -157,12 +108,21 @@ export default function FooterV1() {
                         <ul className="space-y-2.5">
                             {company.map((item, index) => (
                                 <li key={index}>
-                                    <Link
-                                        href={item.href}
-                                        className="inline-block text-white/60 hover:text-white text-sm transition-all hover:pl-1"
-                                    >
-                                        {item.label}
-                                    </Link>
+                                    {item.href.includes("#") ? (
+                                        <HashNavLink
+                                            href={item.href}
+                                            className="inline-block text-white/60 hover:text-white text-sm transition-all hover:pl-1"
+                                        >
+                                            {item.label}
+                                        </HashNavLink>
+                                    ) : (
+                                        <Link
+                                            href={item.href}
+                                            className="inline-block text-white/60 hover:text-white text-sm transition-all hover:pl-1"
+                                        >
+                                            {item.label}
+                                        </Link>
+                                    )}
                                 </li>
                             ))}
                         </ul>
@@ -175,12 +135,12 @@ export default function FooterV1() {
                         <ul className="space-y-2.5">
                             {resources.map((item, index) => (
                                 <li key={index}>
-                                    <Link
+                                    <HashNavLink
                                         href={item.href}
                                         className="whitespace-nowrap text-white/60 hover:text-white text-sm transition-all hover:pl-1"
                                     >
                                         {item.label}
-                                    </Link>
+                                    </HashNavLink>
                                 </li>
                             ))}
                         </ul>

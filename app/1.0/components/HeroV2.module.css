@@ -1,7 +1,7 @@
 .hero {
   position: relative;
   min-height: 100vh;
-  background: url("/hero-bg.jpg") no-repeat center center;
+  background: url("/images/Hero1.jpeg") no-repeat center center;
   background-size: cover;
   display: flex;
   align-items: center;
@@ -35,16 +35,25 @@
     system-ui,
     -apple-system,
     sans-serif;
-  font-size: 48px;
-  line-height: 1.15;
+  font-size: 35px;
+  line-height: 1.5;
   font-weight: 600;
   letter-spacing: -1.3px;
   color: #f5f5f7;
   margin: 0;
 }
 
-.accent {
-  color: #8b7cf6;
+.heroLine {
+  display: block;
+  white-space: nowrap;
+}
+
+.heroLineDominant {
+  display: block;
+  white-space: nowrap;
+  font-weight: 800;
+  color: #4343b4;
+  font-size: 50px;
 }
 
 .heroInner p {
@@ -80,6 +89,11 @@
   .heroInner h1 {
     font-size: clamp(32px, 8vw, 44px);
     letter-spacing: -0.6px;
+  }
+
+  .heroLine,
+  .heroLineDominant {
+    white-space: normal;
   }
 
   .heroInner p {

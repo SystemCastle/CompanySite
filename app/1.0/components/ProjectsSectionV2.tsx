@@ -1,15 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
-    Sparkles,
-    Globe,
-    Smartphone,
-    Monitor,
-    Shield,
-    Layers,
-    Code2,
     X,
     ZoomIn
 } from "lucide-react";
@@ -134,7 +128,7 @@ const projects: Project[] = [
         title: "Women Empowerment Online Platform",
         category: "Citizen Services (G2C)",
         description: "An intelligent women's safety app featuring an IVR helpline, instant SOS, and automated police, media, and legal routing.",
-        image: "/api/placeholder/800/500",
+        image: "/images/WomenSafetyAppp.jpeg",
         tags: ["React JS", "Flutter", "Node JS", "SQL Server", "IVR System", "AWS"],
         metrics: [
             { label: "SOS Response Time", value: "<30s" },
@@ -150,7 +144,7 @@ const projects: Project[] = [
         title: "Campus Management System",
         category: "EdTech",
         description: "A unified campus management platform integrating student, staff, and institutional ERP portals.",
-        image: "/api/placeholder/800/500",
+        image: "/images/CampusManagement.jpeg",
         tags: ["ASP.NET Core", "Entity Framework Core", "Oracle Database", "Bootstrap / jQuery / AJAX", "Crystal Reports / RDLC"],
         metrics: [
             { label: "Modules Integrated", value: "10+" },
@@ -166,7 +160,7 @@ const projects: Project[] = [
         title: "Safe City Project",
         category: "Citizen Services (G2C)",
         description: "The ultimate command & control platform for an integrated emergency response system — Police-15, Rescue 1122, and a unified inter-agency communication and radio dispatch framework.",
-        image: "/api/placeholder/800/500",
+        image: "/images/SafeCity.jpeg",
         tags: ["SQL Server", "Oracle DBMS", "NoSQL", "SAN/NAS Storage", "Flutter / React Native", "Java / Python / Node.js"],
         metrics: [
             { label: "Agencies Unified", value: "Multi-Agency" },
@@ -182,10 +176,10 @@ const projects: Project[] = [
         title: "AI-Powered Road Maintenance System",
         category: "Transportation",
         description: "Next-gen AI and data analytics for smart road monitoring, infrastructure preservation, and maintenance.",
-        image: "/api/placeholder/800/500",
+        image: "/images/AI-Road-Maintenance.jpeg",
         tags: ["YOLOv6", "Python", "AI", "Computer Vision"],
         metrics: [
-            { label: "Detection Accuracy", value: "High" },
+            { label: "Detection Accuracy", value: "98%" },
             { label: "Monitoring", value: "Real-Time" },
             { label: "Maintenance Planning", value: "Automated" }
         ],
@@ -198,7 +192,7 @@ const projects: Project[] = [
         title: "Healthcare Management Information System",
         category: "HealthTech",
         description: "An end-to-end healthcare platform unifying patient records, clinical workflows, doctor scheduling, and medical billing.",
-        image: "/api/placeholder/800/500",
+        image: "/images/HMIS.png",
         tags: ["ASP.NET Core", "REST APIs", "Entity Framework Core", "SQL Server", "Responsive UI"],
         metrics: [
             { label: "Patient Records Digitized", value: "Full EHR" },
@@ -343,18 +337,15 @@ export default function ProjectsSectionV2() {
                                 className="group cursor-pointer"
                             >
                                 <div className="relative bg-white rounded-2xl overflow-hidden border border-slate-200/60 shadow-sm hover:shadow-2xl transition-all duration-500 h-full">
-                                    {/* Image/Placeholder */}
-                                    <div className={`relative h-48 bg-gradient-to-br ${project.color}`}>
-                                        <div className="absolute inset-0 flex items-center justify-center">
-                                            <div className="text-white/20">
-                                                {project.id === 1 && <Globe className="w-16 h-16" />}
-                                                {project.id === 2 && <Shield className="w-16 h-16" />}
-                                                {project.id === 3 && <Code2 className="w-16 h-16" />}
-                                                {project.id === 4 && <Smartphone className="w-16 h-16" />}
-                                                {project.id === 5 && <Layers className="w-16 h-16" />}
-                                                {project.id === 6 && <Monitor className="w-16 h-16" />}
-                                            </div>
-                                        </div>
+                                    <div className="relative h-48 overflow-hidden">
+                                        <Image
+                                            src={project.image}
+                                            alt={project.title}
+                                            fill
+                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                            className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                        />
+                                        <div className={`absolute inset-0 bg-gradient-to-t ${project.gradient} to-transparent`} />
                                         {/* Overlay on hover */}
                                         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                                             <div className="flex items-center gap-3">
@@ -425,15 +416,15 @@ export default function ProjectsSectionV2() {
                                 </button>
                             </div>
 
-                            <div className={`h-48 rounded-2xl bg-gradient-to-br ${selectedProject.color} mb-6 flex items-center justify-center`}>
-                                <div className="text-white/20">
-                                    {selectedProject.id === 1 && <Globe className="w-20 h-20" />}
-                                    {selectedProject.id === 2 && <Shield className="w-20 h-20" />}
-                                    {selectedProject.id === 3 && <Code2 className="w-20 h-20" />}
-                                    {selectedProject.id === 4 && <Smartphone className="w-20 h-20" />}
-                                    {selectedProject.id === 5 && <Layers className="w-20 h-20" />}
-                                    {selectedProject.id === 6 && <Monitor className="w-20 h-20" />}
-                                </div>
+                            <div className="relative h-48 rounded-2xl overflow-hidden mb-6">
+                                <Image
+                                    src={selectedProject.image}
+                                    alt={selectedProject.title}
+                                    fill
+                                    sizes="(max-width: 768px) 100vw, 768px"
+                                    className="object-cover"
+                                />
+                                <div className={`absolute inset-0 bg-gradient-to-t ${selectedProject.gradient} to-transparent`} />
                             </div>
 
                             <p className="text-slate-600 leading-relaxed mb-6">

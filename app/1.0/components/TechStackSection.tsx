@@ -1,4 +1,3 @@
-import { iconUrl } from '../utils/iconUtils';
 import MarqueeTrack from './MarqueeTrack';
 import styles from './TechStackSection.module.css'
 import { TechRow } from './types';

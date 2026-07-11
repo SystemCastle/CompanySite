@@ -24,9 +24,12 @@
 }
 
 .marquee-track {
+  --marquee-gap: 34px;
+  --marquee-half-gap: 17px;
+
   display: flex;
   width: max-content;
-  gap: 34px;
+  gap: var(--marquee-gap);
   animation: tech-scroll 32s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
@@ -73,20 +76,17 @@
 
 /*
  * Seamless loop: the track renders [...items, ...items] inside a flex
- * container with a single uniform `gap`. That makes the two halves
- * byte-for-byte identical in layout (same item widths, same gap
- * between every pair — including the seam between the two copies).
- * So translate3d(-50%, 0, 0) lands EXACTLY on the first pixel of the
- * second copy — no manual pixel offset needed or wanted. Adding one
- * (like the old `- 17px`) shifts the loop point off-target and causes
- * a visible jump/stutter every cycle.
+ * container with a uniform gap. Because 2n items have 2n - 1 gaps,
+ * half the total track width ends half a gap before the second copy.
+ * Including half the gap in the transform makes both loop positions
+ * visually identical and prevents a jump when the animation resets.
  */
 @keyframes tech-scroll {
   from {
     transform: translate3d(0, 0, 0);
   }
   to {
-    transform: translate3d(-50%, 0, 0);
+    transform: translate3d(calc(-50% - var(--marquee-half-gap)), 0, 0);
   }
 }
 
@@ -96,7 +96,8 @@
   }
 
   .marquee-track {
-    gap: 24px;
+    --marquee-gap: 24px;
+    --marquee-half-gap: 12px;
     animation-duration: 26s;
   }
 

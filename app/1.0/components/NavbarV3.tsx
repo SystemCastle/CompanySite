@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import HashNavLink from "./HashNavLink";
 import {
     ArrowRight,
     Building2,
@@ -53,11 +55,21 @@ const navLinks = [
     { label: "Services", href: "/1.0#services" },
     { label: "Product", href: "/1.0#product" },
     { label: "Partners", href: "/1.0#partners" },
-    { label: "Company", href: "/1.0/company" },
+    { label: "Company", href: "/1.0/#about" },
     { label: "Contact Us", href: "/1.0#contact" },
 ];
 
+const trackedSections = [
+    { label: "Company", id: "about" },
+    { label: "Partners", id: "partners" },
+    { label: "Services", id: "services" },
+    { label: "", id: "tech-stack" },
+    { label: "Product", id: "product" },
+    { label: "Contact Us", id: "contact" },
+];
+
 export default function NavbarV3() {
+    const pathname = usePathname();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [activeLink, setActiveLink] = useState("");
 
@@ -75,21 +87,13 @@ export default function NavbarV3() {
     }, [isMobileMenuOpen]);
 
     useEffect(() => {
-        const sectionLinks = navLinks
-            .map((link) => {
-                const hashIndex = link.href.indexOf("#");
-                return hashIndex >= 0
-                    ? { label: link.label, id: link.href.slice(hashIndex + 1) }
-                    : null;
-            })
-            .filter((link): link is { label: string; id: string } => Boolean(link));
-
-        const sectionElements = sectionLinks
+        const sectionElements = trackedSections
             .map((link) => {
                 const element = document.getElementById(link.id);
                 return element ? { ...link, element } : null;
             })
-            .filter((section): section is { label: string; id: string; element: HTMLElement } => Boolean(section));
+            .filter((section): section is { label: string; id: string; element: HTMLElement } => Boolean(section))
+            .sort((a, b) => a.element.offsetTop - b.element.offsetTop);
 
         if (!sectionElements.length) return;
 
@@ -97,14 +101,26 @@ export default function NavbarV3() {
             const headerOffset = 90;
             const viewportAnchor = window.scrollY + headerOffset;
             let currentLabel = "";
+            let currentId = "";
 
             for (const section of sectionElements) {
                 if (section.element.offsetTop <= viewportAnchor) {
                     currentLabel = section.label;
+                    currentId = section.id;
                 }
             }
 
             setActiveLink(currentLabel);
+
+            const basePath = pathname || window.location.pathname || "/1.0";
+            const nextUrl = currentId
+                ? `${basePath}${window.location.search}#${currentId}`
+                : `${basePath}${window.location.search}`;
+            const currentUrl = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+
+            if (currentUrl !== nextUrl) {
+                window.history.replaceState(window.history.state, "", nextUrl);
+            }
         };
 
         updateActiveLink();
@@ -115,7 +131,7 @@ export default function NavbarV3() {
             window.removeEventListener("scroll", updateActiveLink);
             window.removeEventListener("resize", updateActiveLink);
         };
-    }, []);
+    }, [pathname]);
 
     return (
         <header className="absolute top-0 left-0 w-full z-50">
@@ -141,7 +157,7 @@ export default function NavbarV3() {
                     <nav className="hidden lg:flex items-center gap-0.5">
                         {navLinks.map((link) => (
                             <div key={link.label} className="relative group">
-                                <Link
+                                <HashNavLink
                                     href={link.href}
                                     onClick={() => setActiveLink(link.label)}
                                     className={`nav-link px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-1 ${activeLink === link.label
@@ -153,7 +169,7 @@ export default function NavbarV3() {
                                     {link.label === "Services" && (
                                         <ChevronDown className="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180" />
                                     )}
-                                </Link>
+                                </HashNavLink>
 
                                 {link.label === "Services" && (
                                     <div className="absolute left-1/2 top-full pt-1.5 -translate-x-1/2 opacity-0 invisible transition-all duration-200 group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible">
@@ -164,7 +180,7 @@ export default function NavbarV3() {
                                                         const Icon = category.icon;
 
                                                         return (
-                                                            <Link
+                                                            <HashNavLink
                                                                 key={category.title}
                                                                 href="/1.0#services"
                                                                 onClick={() => setActiveLink("Services")}
@@ -181,7 +197,7 @@ export default function NavbarV3() {
                                                                         {category.items.slice(0, 3).join(" / ")}
                                                                     </div>
                                                                 </div>
-                                                            </Link>
+                                                            </HashNavLink>
                                                         );
                                                     })}
                                                 </div>
@@ -190,14 +206,14 @@ export default function NavbarV3() {
                                                 <span className="text-[10px] text-white/50">
                                                     Explore our core service areas
                                                 </span>
-                                                <Link
+                                                <HashNavLink
                                                     href="/1.0#services"
                                                     onClick={() => setActiveLink("Services")}
                                                     className="flex items-center gap-1 text-xs font-medium text-white hover:text-white/80"
                                                 >
                                                     View all
                                                     <ArrowRight className="w-3 h-3" />
-                                                </Link>
+                                                </HashNavLink>
                                             </div>
                                         </div>
                                     </div>
@@ -225,7 +241,7 @@ export default function NavbarV3() {
                 <div className="lg:hidden border-t border-white/10">
                     <nav className="px-4 py-3 space-y-1">
                         {navLinks.map((link) => (
-                            <Link
+                            <HashNavLink
                                 key={link.label}
                                 href={link.href}
                                 onClick={() => {
@@ -238,7 +254,7 @@ export default function NavbarV3() {
                                     }`}
                             >
                                 {link.label}
-                            </Link>
+                            </HashNavLink>
                         ))}
                     </nav>
                 </div>

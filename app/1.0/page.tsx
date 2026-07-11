@@ -8,7 +8,6 @@ import NavbarV3 from './components/NavbarV3'
 import ProjectsSectionV2 from './components/ProjectsSectionV2'
 import ServicesSectionV3 from './components/ServicesSectionV3'
 import TechStackSection from './components/TechStackSection'
-import ServicesSectionV30 from './components/ServicesSectionV30'
 
 function page() {
   return (
@@ -17,7 +16,10 @@ function page() {
 
       <HeroV2 />
 
-      <AboutSectionV3 />
+      <div id="about" className="scroll-mt-14">
+        <AboutSectionV3 />
+      </div>
+
 
       <div id="partners" className="scroll-mt-14">
         <ClientPartnerCarousel />
@@ -27,7 +29,9 @@ function page() {
         <ServicesSectionV3 />
       </div>
 
-      <TechStackSection />
+      <div id="tech-stack" className="scroll-mt-14">
+        <TechStackSection />
+      </div>
 
       <div id="product" className="scroll-mt-14">
         <ProjectsSectionV2 />
