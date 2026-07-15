@@ -20,7 +20,6 @@ function page() {
         <AboutSectionV3 />
       </div>
 
-
       <div id="partners" className="scroll-mt-14">
         <ClientPartnerCarousel />
       </div>

@@ -4,7 +4,9 @@ import { useEffect, useRef, useState } from 'react'
 import styles from './HeroV2.module.css'
 
 const videos = [
+  '/hero/Hero1.mp4',
   '/hero/Hero2.mov',
+  '/hero/Hero3.mp4',
   '/hero/Hero4.mov',
 ]
 
