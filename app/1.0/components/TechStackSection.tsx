@@ -31,6 +31,7 @@ const techRows: TechRow[] = [
             { name: "Vue", logoSrc: "vuedotjs" },
             { name: "Flutter", logoSrc: "flutter" },
             { name: "Tailwind", logoSrc: "tailwindcss" },
+            { name: "WordPress", logoSrc: "wordpress" },
         ],
     },
     {
