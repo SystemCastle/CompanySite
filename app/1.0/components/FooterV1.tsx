@@ -13,22 +13,22 @@ import {
 
 export default function FooterV1() {
     const services = [
-        { icon: Code2, label: "Web Development", href: "/1.0#services" },
-        { icon: Smartphone, label: "Mobile Development", href: "/1.0#services" },
-        { icon: Cloud, label: "Cloud & DevOps", href: "/1.0#services" },
-        { icon: Shield, label: "IT & Security", href: "/1.0#services" },
-        { icon: Building2, label: "Enterprise Solutions", href: "/1.0#services" }
+        { icon: Code2, label: "Web Development", href: "#services" },
+        { icon: Smartphone, label: "Mobile Development", href: "#services" },
+        { icon: Cloud, label: "Cloud & DevOps", href: "#services" },
+        { icon: Shield, label: "IT & Security", href: "#services" },
+        { icon: Building2, label: "Enterprise Solutions", href: "#services" }
     ];
 
     const company = [
-        { label: "Home", href: "/1.0" },
-        { label: "About Us", href: "/1.0/#about" },
-        { label: "Contact", href: "/1.0#contact" }
+        { label: "Home", href: "" },
+        { label: "About Us", href: "#about" },
+        { label: "Contact", href: "#contact" }
     ];
 
     const resources = [
-        { label: "Product", href: "/1.0#product" },
-        { label: "Partners", href: "/1.0#partners" }
+        { label: "Product", href: "#product" },
+        { label: "Partners", href: "#partners" }
     ];
 
     return (

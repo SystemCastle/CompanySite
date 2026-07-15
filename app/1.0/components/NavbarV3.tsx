@@ -52,11 +52,11 @@ const serviceCategories = [
 ];
 
 const navLinks = [
-    { label: "Services", href: "/1.0#services" },
-    { label: "Product", href: "/1.0#product" },
-    { label: "Partners", href: "/1.0#partners" },
-    { label: "Company", href: "/1.0/#about" },
-    { label: "Contact Us", href: "/1.0#contact" },
+    { label: "Services", href: "#services" },
+    { label: "Product", href: "#product" },
+    { label: "Partners", href: "#partners" },
+    { label: "Company", href: "#about" },
+    { label: "Contact Us", href: "#contact" },
 ];
 
 const trackedSections = [
@@ -139,7 +139,7 @@ export default function NavbarV3() {
             <div className="page-container">
                 <div className="flex items-center justify-between h-12 lg:h-14">
                     <Link
-                        href="/1.0"
+                        href="/"
                         className="flex items-center gap-2 transition-opacity hover:opacity-85"
                     >
                         <Image
@@ -183,7 +183,7 @@ export default function NavbarV3() {
                                                         return (
                                                             <HashNavLink
                                                                 key={category.title}
-                                                                href="/1.0#services"
+                                                                href="#services"
                                                                 onClick={() => setActiveLink("Services")}
                                                                 className="group/item flex items-start gap-2 rounded-lg p-2 transition-all hover:scale-[1.02] hover:bg-white/5"
                                                             >
@@ -208,7 +208,7 @@ export default function NavbarV3() {
                                                     Explore our core service areas
                                                 </span>
                                                 <HashNavLink
-                                                    href="/1.0#services"
+                                                    href="#services"
                                                     onClick={() => setActiveLink("Services")}
                                                     className="flex items-center gap-1 text-xs font-medium text-white hover:text-white/80"
                                                 >

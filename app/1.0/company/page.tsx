@@ -113,14 +113,14 @@ export default function CompanyPage() {
                             </p>
                             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                                 <Link
-                                    href="/1.0#contact"
+                                    href="#contact"
                                     className="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-5 py-3 text-sm font-semibold text-slate-950 transition-transform hover:-translate-y-0.5"
                                 >
                                     Start a Conversation
                                     <ArrowRight className="h-4 w-4" />
                                 </Link>
                                 <Link
-                                    href="/1.0#services"
+                                    href="#services"
                                     className="inline-flex items-center justify-center rounded-lg border border-white/15 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
                                 >
                                     Explore Services
@@ -260,7 +260,7 @@ export default function CompanyPage() {
                             We will help you turn it into a practical roadmap, a reliable platform, and a measurable delivery plan.
                         </p>
                         <Link
-                            href="/1.0#contact"
+                            href="#contact"
                             className="mt-8 inline-flex items-center justify-center gap-2 rounded-lg bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-slate-800"
                         >
                             Contact System Castle
