@@ -63,7 +63,12 @@ export default function AboutSectionV3() {
     ];
 
     return (
-        <section ref={sectionRef} className="relative min-h-screen lg:h-screen bg-white overflow-visible lg:overflow-hidden flex items-center">
+        <section
+            ref={sectionRef}
+            className="relative min-h-[100svh] bg-white flex items-center py-14"
+        >
+
+
             {/* Premium Background */}
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-indigo-50/20" />

@@ -199,8 +199,8 @@ const projects: Project[] = [
             { label: "Scheduling Efficiency", value: "60%" },
             { label: "Billing Accuracy", value: "99%" }
         ],
-        color: "from-red-600 to-orange-500",
-        gradient: "from-red-500/20 via-orange-500/20 to-transparent",
+        color: "",
+        gradient: "",
         featured: false
     }
 ];

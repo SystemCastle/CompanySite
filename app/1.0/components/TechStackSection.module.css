@@ -30,14 +30,14 @@
   display: flex;
   width: max-content;
   gap: var(--marquee-gap);
-  animation: tech-scroll 32s linear infinite;
+  animation: tech-scroll 60s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
 }
 
 .marquee-track.reverse {
   animation-direction: reverse;
-  animation-duration: 36s;
+  animation-duration: 60s;
 }
 
 .marquee:hover .marquee-track {
@@ -45,24 +45,24 @@
 }
 
 .tech-item {
-  width: 96px;
+  width: 130px;
   flex: 0 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
   text-align: center;
 }
 
 .tech-logo {
-  width: 64px;
-  height: 64px;
+  width: 100px;
+  height: 100px;
   display: block;
   border-radius: 999px;
   background-color: #ffffff;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 32px 32px;
+  background-size: 50px 50px;
   box-shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
 }
 
@@ -74,13 +74,6 @@
   white-space: nowrap;
 }
 
-/*
- * Seamless loop: the track renders [...items, ...items] inside a flex
- * container with a uniform gap. Because 2n items have 2n - 1 gaps,
- * half the total track width ends half a gap before the second copy.
- * Including half the gap in the transform makes both loop positions
- * visually identical and prevents a jump when the animation resets.
- */
 @keyframes tech-scroll {
   from {
     transform: translate3d(0, 0, 0);

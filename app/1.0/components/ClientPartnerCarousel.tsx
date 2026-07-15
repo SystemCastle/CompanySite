@@ -3,32 +3,56 @@ import styles from './TechStackSection.module.css'
 
 const partners = [
     {
-        name: "Google Cloud",
-        logoSrc: "googlecloud",
+        name: "Huawei",
+        logoSrc: "/company/huawei.webp",
     },
     {
-        name: "UiPath",
-        logoSrc: "uipath",
+        name: "Ericsson",
+        logoSrc: "/company/ericsson.png",
     },
     {
-        name: "SAP",
-        logoSrc: "sap",
+        name: "Nokia",
+        logoSrc: "/company/nokia.png",
     },
     {
-        name: "Accenture",
-        logoSrc: "accenture",
+        name: "Celcom",
+        logoSrc: "/company/celcom.jpg",
     },
     {
-        name: "MongoDB",
-        logoSrc: "mongodb",
+        name: "Singtel",
+        logoSrc: "/company/singtel.webp",
     },
     {
-        name: "Docker",
-        logoSrc: "docker",
+        name: "Orange",
+        logoSrc: "/company/orangeorange.svg",
     },
     {
-        name: "GitHub",
-        logoSrc: "github",
+        name: "STC",
+        logoSrc: "/company/stc.png",
+    },
+    {
+        name: "Mobily",
+        logoSrc: "/company/mobily.jpg",
+    },
+    {
+        name: "OmanTel",
+        logoSrc: "/company/omantel.webp",
+    },
+    {
+        name: "Du",
+        logoSrc: "/company/du.svg",
+    },
+    {
+        name: "Batelco",
+        logoSrc: "/company/batelco.png",
+    },
+    {
+        name: "Qtel",
+        logoSrc: "/company/ooredoo.png",
+    },
+    {
+        name: "Lebara",
+        logoSrc: "/company/lebara.jpg",
     },
 ];
 

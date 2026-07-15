@@ -1,9 +1,12 @@
 // utils/iconUtils.ts
 
-export const iconUrl = (slug: string): string => {
-    return `https://cdn.simpleicons.org/${slug}`;
-};
+export const iconUrl = (value: string): string => {
+    if (value.startsWith("http://") || value.startsWith("https://") || value.startsWith("/")) {
+        return value;
+    }
 
+    return `https://cdn.simpleicons.org/${value}`;
+};
 
 export const iconUrlWithColor = (slug: string, color?: string): string => {
     return color ? `https://cdn.simpleicons.org/${slug}/${color}` : iconUrl(slug);

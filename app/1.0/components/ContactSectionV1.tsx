@@ -41,7 +41,7 @@ export default function ContactSectionV1() {
 
     const locations = [
         {
-            title: "SYSTEM CASTLE SOLUTIONS LLC",
+            title: "SYSTEM CASTLE",
             address: "DeskCo, 3rd floor, 101 East AKM Fazl-ul-Haq Rd, Block I G 7/2 Blue Area, Islamabad",
             phone: "+1-925-214-9198 , 051-8899526",
             email: "info@systemcastle.com",
@@ -147,7 +147,7 @@ export default function ContactSectionV1() {
                         {/* Map */}
                         <div className="bg-slate-100 rounded-2xl overflow-hidden h-[300px] sm:h-[300px] lg:h-[350px] relative">
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6637.965118736111!2d73.05723859999999!3d33.7094002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfbf29e7da8c85%3A0x3930b45b7bc1b78c!2sDeskCo%20%7C%20Coworking%20Space!5e0!3m2!1sen!2s!4v1783407069686!5m2!1sen!2s"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3318.6301205524733!2d73.0744199!3d33.7185187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa4a2a1eecd4de4e1%3A0x3c8ba5217dfdfb11!2sSystem%20Castle!5e0!3m2!1sen!2s!4v1784106946619!5m2!1sen!2s"
                                 width="100%"
                                 height="100%"
                                 style={{ border: 0 }}
@@ -156,6 +156,7 @@ export default function ContactSectionV1() {
                                 referrerPolicy="no-referrer-when-downgrade"
                                 className="absolute inset-0"
                             />
+
                         </div>
 
                         {/* Location Cards */}

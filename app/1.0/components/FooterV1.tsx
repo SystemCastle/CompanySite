@@ -63,7 +63,7 @@ export default function FooterV1() {
                             />
                             <div>
                                 <h2 className="text-2xl font-bold tracking-tight">System Castle</h2>
-                                <p className="text-sm text-white/50">Software Agency</p>
+                                {/* <p className="text-sm text-white/50">Software Agency</p> */}
                             </div>
                         </div>
 
@@ -71,12 +71,12 @@ export default function FooterV1() {
                             We build software people trust. Custom software development for startups and enterprises. Scalable, secure and built to last.
                         </p>
 
-                        <div className="flex items-center gap-4">
+                        {/* <div className="flex items-center gap-4">
                             <div className="flex items-center gap-2 text-sm">
                                 <Award className="w-4 h-4 text-indigo-400" />
                                 <span className="text-white/70">Trusted by 150+ companies</span>
                             </div>
-                        </div>
+                        </div> */}
 
                     </div>
 

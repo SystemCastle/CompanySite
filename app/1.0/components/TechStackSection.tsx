@@ -65,7 +65,7 @@ export default function TechStackSection() {
                 <div className="space-y-8">
                     {techRows.map((row) => (
                         <div className="tech-row" key={row.title}>
-                            <div className="mb-4 flex items-center justify-center">
+                            <div className="mt-16 mb-16 flex items-center justify-center">
                                 <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500">
                                     {row.title}
                                 </h3>
