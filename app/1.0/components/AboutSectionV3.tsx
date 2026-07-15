@@ -56,13 +56,14 @@ export default function AboutSectionV3() {
     const verticals = [
         { name: "Telco", icon: Wifi, color: "indigo" },
         { name: "Fintech", icon: Smartphone, color: "pink" },
-        { name: "Citizen Services (G2C)", icon: UsersRound, color: "amber" },
+        { name: "Citizen Services", icon: UsersRound, color: "amber" },
         { name: "HealthTech", icon: Hospital, color: "red" },
         { name: "EdTech", icon: Book, color: "green" },
         { name: "Transportation", icon: Car, color: "gray" }
     ];
 
     return (
+
         <section
             ref={sectionRef}
             className="relative min-h-[100svh] bg-white flex items-center"
@@ -140,7 +141,8 @@ export default function AboutSectionV3() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.6, delay: 0.1 }}
-                    className="grid grid-cols-1 sm:grid-cols-3 gap-3 lg:gap-4 mb-5 lg:mb-5"
+                    // className="grid grid-cols-1 sm:grid-cols-3 gap-3 lg:gap-4 mb-5 lg:mb-5"
+                    className="flex flex-col sm:flex-row justify-between gap-3 lg:gap-4 mb-5 lg:mb-5"
                 >
                     {stats.map((stat, index) => {
                         const Icon = stat.icon;
@@ -148,7 +150,8 @@ export default function AboutSectionV3() {
                             <motion.div
                                 key={index}
                                 whileHover={{ scale: 1.03, y: -4 }}
-                                className={`relative bg-gradient-to-br ${stat.gradient} rounded-xl p-4 sm:p-3 lg:p-4 text-white shadow-xl shadow-indigo-500/20 overflow-hidden group`}
+                                // className={`relative bg-gradient-to-br ${stat.gradient} rounded-xl p-4 sm:p-3 lg:p-4 text-white shadow-xl shadow-indigo-500/20 overflow-hidden group`}
+                                className={`relative w-full sm:w-[240px] bg-gradient-to-br ${stat.gradient} rounded-xl p-4 sm:p-3 lg:p-4 text-white shadow-xl shadow-indigo-500/20 overflow-hidden group`}
                             >
                                 {/* Background Pattern */}
                                 <div className="absolute inset-0 opacity-10">
@@ -193,7 +196,7 @@ export default function AboutSectionV3() {
                                 <p className="text-xs text-slate-500">Our core service areas</p>
                             </div>
                         </div>
-                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 lg:gap-2">
+                        <div className="px-4 grid grid-cols-2 sm:grid-cols-3 gap-2.5 lg:gap-2 place-items-center">
                             {horizontals.map((item, index) => {
                                 const Icon = item.icon;
                                 const colorMap = {
@@ -207,7 +210,8 @@ export default function AboutSectionV3() {
                                     <motion.div
                                         key={index}
                                         whileHover={{ y: -4, scale: 1.05 }}
-                                        className="bg-white/75 backdrop-blur-sm rounded-lg p-3 lg:p-2.5 text-center border border-white/50 shadow-sm"
+                                        // className="bg-white/75 backdrop-blur-sm rounded-lg p-3 lg:p-2.5 text-center border border-white/50 shadow-sm"
+                                        className="w-[105px] mb-2 bg-white/75 backdrop-blur-sm rounded-lg p-3 lg:p-2.5 text-center border border-white/50 shadow-sm"
                                     >
                                         <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${colorMap[item.color as keyof typeof colorMap]} shadow-lg flex items-center justify-center mx-auto mb-1.5`}>
                                             <Icon className="w-4 h-4 text-white" />
@@ -235,7 +239,7 @@ export default function AboutSectionV3() {
                                 <p className="text-xs text-slate-500">Industries we serve</p>
                             </div>
                         </div>
-                        <div className="grid grid-cols-3 gap-2.5 lg:gap-2">
+                        <div className="px-4 grid grid-cols-2 sm:grid-cols-3 gap-2.5 lg:gap-2 place-items-center">
                             {verticals.map((item, index) => {
                                 const Icon = item.icon;
                                 const colorMap = {
@@ -250,7 +254,8 @@ export default function AboutSectionV3() {
                                     <motion.div
                                         key={index}
                                         whileHover={{ y: -4, scale: 1.05 }}
-                                        className="bg-white/75 backdrop-blur-sm rounded-lg p-3 lg:p-2.5 text-center border border-white/50 shadow-sm"
+                                        className="w-[105px] mb-2 bg-white/75 backdrop-blur-sm rounded-lg p-3 lg:p-2.5 text-center border border-white/50 shadow-sm"
+                                    // className="bg-white/75 backdrop-blur-sm rounded-lg p-3 lg:p-2.5 text-center border border-white/50 shadow-sm"
                                     >
                                         <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${colorMap[item.color as keyof typeof colorMap]} shadow-lg flex items-center justify-center mx-auto mb-1.5`}>
                                             <Icon className="w-4 h-4 text-white" />
@@ -264,6 +269,8 @@ export default function AboutSectionV3() {
                 </div>
             </div>
         </section>
+
+
     );
 }
 

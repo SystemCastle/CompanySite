@@ -123,21 +123,23 @@ function AdvancedTiltCard({
                 {/* Content with 3D depth */}
                 <div style={{ transform: "translateZ(30px)" }} className="relative z-10 flex-1 flex flex-col">
                     {/* Icon with advanced styling */}
-                    <motion.div
-                        whileHover={{ scale: 1.05, rotateZ: 3 }}
-                        whileTap={{ scale: 0.95 }}
-                        className={`w-10 h-10 rounded-xl bg-gradient-to-br ${gradient} shadow-lg flex items-center justify-center mb-0 relative flex-shrink-0`}
-                    >
-                        <div className={`absolute inset-0 rounded-xl bg-gradient-to-br ${gradient} blur-xl opacity-30`} />
-                        {children}
-                        <div className="absolute -inset-1 rounded-xl border-2 border-white/10" />
-                    </motion.div>
+                    <div className="flex items-center gap-2">
+                        <motion.div
+                            whileHover={{ scale: 1.05, rotateZ: 3 }}
+                            whileTap={{ scale: 0.95 }}
+                            className={`w-10 h-10 rounded-xl bg-gradient-to-br ${gradient} shadow-lg flex items-center justify-center mb-0 relative flex-shrink-0`}
+                        >
+                            <div className={`absolute inset-0 rounded-xl bg-gradient-to-br ${gradient} blur-xl opacity-30`} />
+                            {children}
+                            <div className="absolute -inset-1 rounded-xl border-2 border-white/10" />
+                        </motion.div>
+                        <h3 className="pb-2 pt-4 text-lg font-semibold text-slate-900 tracking-tight">
+                            {title}
+                        </h3>
 
-                    <h3 className="pb-2 pt-4 text-lg font-semibold text-slate-900 tracking-tight">
-                        {title}
-                    </h3>
+                    </div>
 
-                    <p className="text-sm text-slate-600 leading-relaxed flex-1">
+                    <p className="mt-4 text-sm text-slate-600 leading-relaxed flex-1">
                         {description}
                     </p>
 
