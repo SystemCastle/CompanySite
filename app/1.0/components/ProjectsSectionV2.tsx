@@ -272,7 +272,7 @@ export default function ProjectsSectionV2() {
     };
 
     return (
-        <section className="relative py-14 bg-gradient-to-b from-slate-50 via-white to-slate-50 overflow-hidden">
+        <section className="relative bg-gradient-to-b from-slate-50 via-white to-slate-50 overflow-hidden">
             {/* Background Elements */}
             <div className="absolute inset-0">
                 <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-indigo-50/30 via-purple-50/20 to-transparent" />
@@ -280,7 +280,7 @@ export default function ProjectsSectionV2() {
             </div>
             <FloatingParticles />
 
-            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="page-container relative z-10 section-spacing">
                 {/* Section Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}

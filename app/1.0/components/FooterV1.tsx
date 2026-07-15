@@ -48,9 +48,9 @@ export default function FooterV1() {
                 </div>
             </div>
 
-            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="page-container relative z-10 section-spacing">
                 {/* Main Footer Content */}
-                <div className="py-16 grid grid-cols-2 lg:grid-cols-12 gap-8">
+                <div className="grid grid-cols-2 lg:grid-cols-12 gap-8">
                     {/* Brand Column - 4 cols */}
                     <div className="col-span-2 lg:col-span-4 space-y-6">
                         <div className="flex items-center gap-3">

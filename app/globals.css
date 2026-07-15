@@ -30,3 +30,11 @@ body {
   max-width: 100%;
   overflow-x: hidden;
 }
+
+.page-container {
+  @apply mx-auto w-full max-w-[70rem] px-[15px];
+}
+
+.section-spacing {
+  @apply py-12;
+}

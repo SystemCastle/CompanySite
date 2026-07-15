@@ -141,13 +141,6 @@ function AdvancedTiltCard({
                         {description}
                     </p>
 
-                    {/* Stats Badge */}
-                    {/* <div className="mt-2 mb-4 flex items-center gap-3">
-                        <div className="flex items-center gap-1.5">
-                            <span className="text-md font-bold text-slate-800">{stats}</span>
-                            <span className="text-xs text-slate-500">{statLabel}</span>
-                        </div>
-                    </div> */}
                 </div>
 
                 {/* Bottom right decorative element */}
@@ -227,7 +220,6 @@ export default function ServicesSectionV3() {
 
     return (
         <section className="relative min-h-[100vh] flex items-center bg-gradient-to-b from-slate-50 via-white to-slate-50 overflow-hidden">
-
             {/* Sophisticated gradient orbs */}
             <div className="absolute inset-0 pointer-events-none">
                 <motion.div
@@ -248,7 +240,7 @@ export default function ServicesSectionV3() {
                 />
             </div>
 
-            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16">
+            <div className="page-container relative z-10 w-full section-spacing">
                 {/* Section Header - Professional */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}

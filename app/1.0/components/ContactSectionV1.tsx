@@ -50,8 +50,8 @@ export default function ContactSectionV1() {
     ];
 
     return (
-        <section className="py-14 bg-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="bg-white">
+            <div className="page-container section-spacing">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                     {/* Left - Form */}
                     <div className="order-1 bg-white rounded-2xl p-8">

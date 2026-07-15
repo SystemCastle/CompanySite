@@ -135,7 +135,8 @@ export default function NavbarV3() {
 
     return (
         <header className="absolute top-0 left-0 w-full z-50">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> */}
+            <div className="page-container">
                 <div className="flex items-center justify-between h-12 lg:h-14">
                     <Link
                         href="/1.0"

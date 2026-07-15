@@ -65,7 +65,7 @@ export default function AboutSectionV3() {
     return (
         <section
             ref={sectionRef}
-            className="relative min-h-[100svh] bg-white flex items-center py-14"
+            className="relative min-h-[100svh] bg-white flex items-center"
         >
 
 
@@ -111,7 +111,9 @@ export default function AboutSectionV3() {
                 <div className="absolute bottom-1/3 left-0 w-96 h-px bg-gradient-to-r from-purple-500/20 to-transparent" />
             </div>
 
-            <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-18 lg:py-12">
+            {/* <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-18 lg:py-12"> */}
+            <div className="page-container relative z-10 section-spacing">
+
                 {/* Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
