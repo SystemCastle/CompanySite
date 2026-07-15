@@ -136,7 +136,7 @@ function AdvancedTiltCard({
                                 className={`absolute inset-0 rounded-xl bg-gradient-to-br ${gradient} blur-xl opacity-30`}
                             />
                             {children}
-                            <div className="absolute -inset-1 rounded-xl  border-white/10" />
+                            <div className="absolute -inset-1 rounded-xl border-white/10" />
                         </motion.div>
 
                         <h3 className="pb-2 pt-4 text-lg font-semibold text-white tracking-tight">

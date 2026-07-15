@@ -163,7 +163,7 @@ export default function NavbarV3() {
                                     onClick={() => setActiveLink(link.label)}
                                     className={`nav-link px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-1 ${activeLink === link.label
                                         ? "text-white"
-                                        : "text-white/70 hover:text-[#f69f14] hover:scale-[1.02]"
+                                        : "text-white hover:text-[#f69f14] hover:scale-[1.02]"
                                         }`}
                                 >
                                     {link.label}
