@@ -180,15 +180,14 @@ export default function AboutSectionV3() {
 
                 {/* Horizontals & Verticals - Side by Side */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
-
-                    {/* Horizontals # dark */}
+                    {/* Horizontals */}
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         animate={isInView ? { opacity: 1, x: 0 } : {}}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="bg-gradient-to-br from-indigo-900 via-purple-900 to-fuchsia-900 rounded-2xl p-4 sm:p-5 lg:p-5 border border-purple-700/40 shadow-2xl shadow-purple-900/50"
+                        className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 backdrop-blur-sm rounded-2xl p-4 sm:p-5 lg:p-5 border border-slate-700 shadow-2xl shadow-slate-900/40"
                     >
-                        <div className="flex items-center gap-3 mb-5">
+                        <div className="flex items-center gap-3 mb-3">
                             <div className="p-2 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl shadow-lg shadow-cyan-500/30">
                                 <Layers className="w-5 h-5 text-white" />
                             </div>
@@ -197,124 +196,106 @@ export default function AboutSectionV3() {
                                 <h3 className="text-base lg:text-lg font-bold text-white">
                                     5 Horizontals
                                 </h3>
-                                <p className="text-xs text-slate-300">
+                                <p className="text-xs text-slate-400">
                                     Our core service areas
                                 </p>
                             </div>
                         </div>
 
-                        <div className="space-y-3">
-                            {/* First Row */}
-                            <div className="grid grid-cols-3 gap-3">
-                                {horizontals.slice(0, 3).map((item, index) => {
-                                    const Icon = item.icon;
+                        <div className="px-4 grid grid-cols-2 sm:grid-cols-3 gap-2.5 lg:gap-2 place-items-center">
+                            {horizontals.map((item, index) => {
+                                const Icon = item.icon;
 
-                                    const gradient =
-                                        item.color === "blue"
-                                            ? "from-blue-500 to-cyan-500"
-                                            : item.color === "purple"
-                                                ? "from-purple-500 to-pink-500"
-                                                : "from-emerald-500 to-teal-500";
+                                const colorMap = {
+                                    blue: "from-blue-500 to-cyan-500",
+                                    purple: "from-purple-500 to-pink-500",
+                                    emerald: "from-emerald-500 to-teal-500",
+                                    red: "from-red-500 to-rose-500",
+                                    orange: "from-orange-500 to-amber-500",
+                                };
 
-                                    return (
-                                        <motion.div
-                                            key={index}
-                                            whileHover={{ y: -4, scale: 1.05 }}
-                                            className="rounded-xl border border-white/20 bg-white/10 backdrop-blur-md py-3 px-2 text-center shadow-lg shadow-black/10 transition-colors hover:bg-white/15"
+                                return (
+                                    <motion.div
+                                        key={index}
+                                        whileHover={{ y: -4, scale: 1.05 }}
+                                        className="w-[105px] mb-2 rounded-lg border border-slate-700 bg-slate-800/80 backdrop-blur-sm p-3 lg:p-2.5 text-center shadow-sm transition-colors hover:bg-slate-700/80"
+                                    >
+                                        <div
+                                            className={`w-8 h-8 rounded-lg bg-gradient-to-br ${colorMap[item.color as keyof typeof colorMap]
+                                                } shadow-lg flex items-center justify-center mx-auto mb-1.5`}
                                         >
-                                            <div
-                                                className={`mx-auto mb-2 flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br ${gradient} shadow-md`}
-                                            >
-                                                <Icon className="h-5 w-5 text-white" />
-                                            </div>
+                                            <Icon className="w-4 h-4 text-white" />
+                                        </div>
 
-                                            <p className="text-xs font-medium text-white/90">
-                                                {item.name}
-                                            </p>
-                                        </motion.div>
-                                    );
-                                })}
-                            </div>
-
-                            {/* Second Row */}
-                            <div className="grid grid-cols-2 gap-3">
-                                {horizontals.slice(3).map((item, index) => {
-                                    const Icon = item.icon;
-
-                                    const gradient =
-                                        item.color === "red"
-                                            ? "from-red-500 to-rose-500"
-                                            : "from-orange-500 to-amber-500";
-
-                                    return (
-                                        <motion.div
-                                            key={index}
-                                            whileHover={{ y: -4, scale: 1.05 }}
-                                            className="rounded-xl border border-white/20 bg-white/10 backdrop-blur-md py-3 px-2 text-center shadow-lg shadow-black/10 transition-colors hover:bg-white/15"
-                                        >
-                                            <div
-                                                className={`mx-auto mb-2 flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br ${gradient} shadow-md`}
-                                            >
-                                                <Icon className="h-5 w-5 text-white" />
-                                            </div>
-
-                                            <p className="text-xs font-medium text-white/90 leading-tight">
-                                                {item.name}
-                                            </p>
-                                        </motion.div>
-                                    );
-                                })}
-                            </div>
+                                        <p className="text-xs lg:text-[11px] font-medium text-slate-200 leading-tight">
+                                            {item.name}
+                                        </p>
+                                    </motion.div>
+                                );
+                            })}
                         </div>
                     </motion.div>
+
 
                     {/* Verticals */}
                     <motion.div
                         initial={{ opacity: 0, x: 30 }}
                         animate={isInView ? { opacity: 1, x: 0 } : {}}
                         transition={{ duration: 0.6, delay: 0.3 }}
-                        className="bg-gradient-to-br from-emerald-50/80 to-teal-50/80 backdrop-blur-sm rounded-2xl p-4 sm:p-5 lg:p-5 border border-emerald-100/50 shadow-sm lg:shadow-none"
+                        className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 backdrop-blur-sm rounded-2xl p-4 sm:p-5 lg:p-5 border border-slate-700 shadow-2xl shadow-slate-900/40"
                     >
                         <div className="flex items-center gap-3 mb-3">
-                            <div className="p-2 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl shadow-lg shadow-emerald-500/20">
+                            <div className="p-2 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl shadow-lg shadow-emerald-500/30">
                                 <Building2 className="w-5 h-5 text-white" />
                             </div>
+
                             <div>
-                                <h3 className="text-base lg:text-lg font-bold text-slate-800">{verticals.length} Verticals</h3>
-                                <p className="text-xs text-slate-500">Industries we serve</p>
+                                <h3 className="text-base lg:text-lg font-bold text-white">
+                                    {verticals.length} Verticals
+                                </h3>
+                                <p className="text-xs text-slate-400">
+                                    Industries we serve
+                                </p>
                             </div>
                         </div>
+
                         <div className="px-4 grid grid-cols-2 sm:grid-cols-3 gap-2.5 lg:gap-2 place-items-center">
                             {verticals.map((item, index) => {
                                 const Icon = item.icon;
+
                                 const colorMap = {
-                                    indigo: "from-indigo-500 to-purple-600",
-                                    pink: "from-pink-500 to-rose-600",
-                                    amber: "from-amber-500 to-orange-600",
-                                    red: "from-red-500 to-rose-600",
-                                    green: "from-green-500 to-emerald-600",
-                                    gray: "from-gray-500 to-slate-600",
+                                    indigo: "from-indigo-500 to-purple-500",
+                                    pink: "from-pink-500 to-rose-500",
+                                    amber: "from-amber-500 to-orange-500",
+                                    red: "from-red-500 to-rose-500",
+                                    green: "from-green-500 to-emerald-500",
+                                    gray: "from-gray-500 to-slate-500",
                                 };
+
                                 return (
                                     <motion.div
                                         key={index}
                                         whileHover={{ y: -4, scale: 1.05 }}
-                                        className="w-[105px] mb-2 bg-white/75 backdrop-blur-sm rounded-lg p-3 lg:p-2.5 text-center border border-white/50 shadow-sm"
-                                    // className="bg-white/75 backdrop-blur-sm rounded-lg p-3 lg:p-2.5 text-center border border-white/50 shadow-sm"
+                                        className="w-[105px] mb-2 rounded-lg border border-slate-700 bg-slate-800/80 backdrop-blur-sm p-3 lg:p-2.5 text-center shadow-sm transition-colors hover:bg-slate-700/80"
                                     >
-                                        <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${colorMap[item.color as keyof typeof colorMap]} shadow-lg flex items-center justify-center mx-auto mb-1.5`}>
+                                        <div
+                                            className={`w-8 h-8 rounded-lg bg-gradient-to-br ${colorMap[item.color as keyof typeof colorMap]
+                                                } shadow-lg flex items-center justify-center mx-auto mb-1.5`}
+                                        >
                                             <Icon className="w-4 h-4 text-white" />
                                         </div>
-                                        <p className="text-xs lg:text-[11px] font-medium text-slate-700 leading-tight">{item.name}</p>
+
+                                        <p className="text-xs lg:text-[11px] font-medium text-slate-200 leading-tight">
+                                            {item.name}
+                                        </p>
                                     </motion.div>
                                 );
                             })}
                         </div>
                     </motion.div>
+
+
                 </div>
-
-
-
             </div>
         </section>
 

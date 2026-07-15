@@ -83,7 +83,7 @@ function AdvancedTiltCard({
                     y: isHovered ? -6 : 0,
                 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
-                className="relative bg-white rounded-2xl py-6 px-8 border border-slate-200/60 shadow-lg hover:shadow-2xl transition-shadow duration-300 h-full flex flex-col overflow-hidden"
+                className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-2xl py-6 px-8 border border-slate-700 shadow-2xl shadow-slate-900/40 hover:shadow-slate-950/60 transition-shadow duration-300 h-full flex flex-col overflow-hidden"
                 style={{
                     transformStyle: "preserve-3d",
                 }}
@@ -93,7 +93,7 @@ function AdvancedTiltCard({
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        className="absolute inset-0 rounded-2xl bg-gradient-to-r from-slate-200/50 via-indigo-500/10 to-slate-200/50 -z-10"
+                        className="absolute inset-0 rounded-2xl bg-gradient-to-r from-slate-700/40 via-indigo-500/10 to-slate-700/40 -z-10"
                     />
                 )}
 
@@ -101,8 +101,8 @@ function AdvancedTiltCard({
                 <motion.div
                     className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                     style={{
-                        background: `radial-gradient(circle at ${reflectionX} ${reflectionY}, rgba(255,255,255,0.8) 0%, transparent 60%)`,
-                        mixBlendMode: "overlay",
+                        background: `radial-gradient(circle at ${reflectionX} ${reflectionY}, rgba(255,255,255,0.08) 0%, transparent 60%)`,
+                        mixBlendMode: "screen",
                     }}
                 />
 
@@ -116,33 +116,37 @@ function AdvancedTiltCard({
                 />
 
                 {/* Decorative number - background */}
-                <div className="absolute -right-4 -top-4 text-8xl font-bold text-gray-200/30 select-none">
-                    {String(index + 1).padStart(1, '0')}
+                <div className="absolute -right-4 -top-4 text-8xl font-bold text-slate-700/20 select-none">
+                    {String(index + 1).padStart(1, "0")}
                 </div>
 
                 {/* Content with 3D depth */}
-                <div style={{ transform: "translateZ(30px)" }} className="relative z-10 flex-1 flex flex-col">
-                    {/* Icon with advanced styling */}
+                <div
+                    style={{ transform: "translateZ(30px)" }}
+                    className="relative z-10 flex-1 flex flex-col"
+                >
+                    {/* Icon */}
                     <div className="flex items-center gap-2">
                         <motion.div
                             whileHover={{ scale: 1.05, rotateZ: 3 }}
                             whileTap={{ scale: 0.95 }}
                             className={`w-10 h-10 rounded-xl bg-gradient-to-br ${gradient} shadow-lg flex items-center justify-center mb-0 relative flex-shrink-0`}
                         >
-                            <div className={`absolute inset-0 rounded-xl bg-gradient-to-br ${gradient} blur-xl opacity-30`} />
+                            <div
+                                className={`absolute inset-0 rounded-xl bg-gradient-to-br ${gradient} blur-xl opacity-30`}
+                            />
                             {children}
-                            <div className="absolute -inset-1 rounded-xl border-2 border-white/10" />
+                            <div className="absolute -inset-1 rounded-xl  border-white/10" />
                         </motion.div>
-                        <h3 className="pb-2 pt-4 text-lg font-semibold text-slate-900 tracking-tight">
+
+                        <h3 className="pb-2 pt-4 text-lg font-semibold text-white tracking-tight">
                             {title}
                         </h3>
-
                     </div>
 
-                    <p className="mt-4 text-sm text-slate-600 leading-relaxed flex-1">
+                    <p className="mt-4 text-sm text-slate-300 leading-relaxed flex-1">
                         {description}
                     </p>
-
                 </div>
 
                 {/* Bottom right decorative element */}
@@ -151,10 +155,10 @@ function AdvancedTiltCard({
                         rotate: isHovered ? 90 : 0,
                     }}
                     transition={{ duration: 0.5 }}
-                    className="absolute bottom-3 right-3 text-slate-200"
+                    className="absolute bottom-3 right-3 text-slate-600"
                 >
-                    <div className="w-6 h-6 border border-slate-200 rounded-lg flex items-center justify-center">
-                        <div className="w-2 h-2 rounded-full bg-slate-300" />
+                    <div className="w-6 h-6 border border-slate-700 rounded-lg flex items-center justify-center">
+                        <div className="w-2 h-2 rounded-full bg-slate-500" />
                     </div>
                 </motion.div>
             </motion.div>
