@@ -21,106 +21,6 @@ interface Project {
     featured?: boolean;
 }
 
-// const projects: Project[] = [
-//     {
-//         id: 1,
-//         title: "4G Package Change Automation",
-//         category: "Telecom",
-//         description: "Revolutionized 4G package change procedure for a telecom giant using AI-powered automation, reducing errors and costs while improving customer satisfaction.",
-//         image: "/api/placeholder/800/500",
-//         tags: ["AI", "RPA", "Telecom"],
-//         metrics: [
-//             { label: "Faster Processing", value: "60%" },
-//             { label: "Cost Reduction", value: "40%" },
-//             { label: "Accuracy", value: "99.9%" }
-//         ],
-//         color: "from-blue-600 to-cyan-500",
-//         gradient: "from-blue-500/20 via-cyan-500/20 to-transparent",
-//         featured: true
-//     },
-//     {
-//         id: 2,
-//         title: "Account Closure System",
-//         category: "Fintech",
-//         description: "Overhauled a microfinance bank's account closure system, turning manual procedures into automated workflows for faster processing and fewer errors.",
-//         image: "/api/placeholder/800/500",
-//         tags: ["Fintech", "Automation", "Banking"],
-//         metrics: [
-//             { label: "Faster Closure", value: "70%" },
-//             { label: "Error Reduction", value: "50%" },
-//             { label: "Satisfaction", value: "95%" }
-//         ],
-//         color: "from-purple-600 to-pink-500",
-//         gradient: "from-purple-500/20 via-pink-500/20 to-transparent",
-//         featured: false
-//     },
-//     {
-//         id: 3,
-//         title: "AI Customer Support Platform",
-//         category: "E-commerce",
-//         description: "Implemented AI-powered customer support for an e-commerce platform, handling thousands of queries simultaneously with human-like accuracy.",
-//         image: "/api/placeholder/800/500",
-//         tags: ["AI", "Chatbot", "E-commerce"],
-//         metrics: [
-//             { label: "Faster Response", value: "80%" },
-//             { label: "Cost Savings", value: "45%" },
-//             { label: "Resolution Rate", value: "92%" }
-//         ],
-//         color: "from-emerald-600 to-teal-500",
-//         gradient: "from-emerald-500/20 via-teal-500/20 to-transparent",
-//         featured: false
-//     },
-//     {
-//         id: 4,
-//         title: "Digital Banking Platform",
-//         category: "Fintech",
-//         description: "Built a comprehensive digital banking platform with real-time transactions, biometric authentication, and AI-powered fraud detection.",
-//         image: "/api/placeholder/800/500",
-//         tags: ["Banking", "Security", "Mobile"],
-//         metrics: [
-//             { label: "Users Onboarded", value: "50K+" },
-//             { label: "Uptime", value: "99.99%" },
-//             { label: "Security Score", value: "A+" }
-//         ],
-//         color: "from-orange-600 to-amber-500",
-//         gradient: "from-orange-500/20 via-amber-500/20 to-transparent",
-//         featured: false
-//     },
-//     {
-//         id: 5,
-//         title: "Smart IoT Solution",
-//         category: "IoT",
-//         description: "Developed an end-to-end IoT solution for smart building management, integrating sensors, cloud analytics, and real-time monitoring dashboards.",
-//         image: "/api/placeholder/800/500",
-//         tags: ["IoT", "Cloud", "Analytics"],
-//         metrics: [
-//             { label: "Energy Savings", value: "35%" },
-//             { label: "Devices Connected", value: "10K+" },
-//             { label: "Response Time", value: "<100ms" }
-//         ],
-//         color: "from-red-600 to-rose-500",
-//         gradient: "from-red-500/20 via-rose-500/20 to-transparent",
-//         featured: false
-//     },
-//     {
-//         id: 6,
-//         title: "Healthcare Management System",
-//         category: "Healthcare",
-//         description: "Created a comprehensive healthcare management platform with patient records, appointment scheduling, telemedicine, and AI-powered diagnostics.",
-//         image: "/api/placeholder/800/500",
-//         tags: ["Healthcare", "AI", "Mobile"],
-//         metrics: [
-//             { label: "Patients Served", value: "100K+" },
-//             { label: "Efficiency Gain", value: "55%" },
-//             { label: "Accuracy", value: "96%" }
-//         ],
-//         color: "from-indigo-600 to-violet-500",
-//         gradient: "from-indigo-500/20 via-violet-500/20 to-transparent",
-//         featured: false
-//     }
-// ];
-
-
 
 const projects: Project[] = [
     {
@@ -135,8 +35,8 @@ const projects: Project[] = [
             { label: "Agencies Connected", value: "3+" },
             { label: "Uptime", value: "99.9%" }
         ],
-        color: "from-pink-600 to-rose-500",
-        gradient: "from-pink-500/20 via-rose-500/20 to-transparent",
+        color: "",
+        gradient: "",
         featured: true
     },
     {
@@ -151,8 +51,8 @@ const projects: Project[] = [
             { label: "Process Efficiency", value: "50%" },
             { label: "Users Onboarded", value: "5K+" }
         ],
-        color: "from-green-600 to-emerald-500",
-        gradient: "from-green-500/20 via-emerald-500/20 to-transparent",
+        color: "",
+        gradient: "",
         featured: false
     },
     {
@@ -183,8 +83,8 @@ const projects: Project[] = [
             { label: "Monitoring", value: "Real-Time" },
             { label: "Maintenance Planning", value: "Automated" }
         ],
-        color: "from-gray-600 to-slate-500",
-        gradient: "from-gray-500/20 via-slate-500/20 to-transparent",
+        color: "",
+        gradient: "",
         featured: false
     },
     {

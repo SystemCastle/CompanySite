@@ -34,7 +34,7 @@ export default function FooterV1() {
     return (
         <footer className="relative bg-slate-900 text-white overflow-hidden">
             {/* Premium Background Effects */}
-            <div className="absolute inset-0 pointer-events-none">
+            {/* <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-indigo-500/10 via-purple-500/5 to-transparent" />
                 <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-tr from-blue-500/10 via-cyan-500/5 to-transparent" />
                 <div className="absolute inset-0 opacity-[0.02]">
@@ -46,7 +46,7 @@ export default function FooterV1() {
                         }}
                     />
                 </div>
-            </div>
+            </div> */}
 
             <div className="page-container relative z-10 section-spacing">
                 {/* Main Footer Content */}

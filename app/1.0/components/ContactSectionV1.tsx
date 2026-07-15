@@ -42,8 +42,8 @@ export default function ContactSectionV1() {
     const locations = [
         {
             title: "SYSTEM CASTLE",
-            address: "DeskCo, 3rd floor, 101 East AKM Fazl-ul-Haq Rd, Block I G 7/2 Blue Area, Islamabad",
-            phone: "+1-925-214-9198 , 051-8899526",
+            address: "System Castle, 3rd floor, 101 East AKM Fazl-ul-Haq Rd, Block I, G 7/2 Blue Area, Islamabad",
+            phone: "+1-925-214-9198",
             email: "info@systemcastle.com",
             flag: "🇦🇪"
         },
@@ -169,6 +169,7 @@ export default function ContactSectionV1() {
                                                 {location.title}
                                             </h4>
                                             <p className="text-sm text-slate-600 whitespace-pre-line">
+                                                <span>📍</span>
                                                 {location.address}
                                             </p>
                                             {location.phone && (
