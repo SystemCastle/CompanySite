@@ -1,0 +1,363 @@
+"use client";
+
+import Image from "next/image";
+import { useRef, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import {
+    X,
+    ZoomIn
+} from "lucide-react";
+
+interface Project {
+    id: number;
+    title: string;
+    category: string;
+    description: string;
+    image: string;
+    tags: string[];
+    metrics: { label: string; value: string }[];
+    color: string;
+    gradient: string;
+    featured?: boolean;
+}
+
+
+const projects: Project[] = [
+    {
+        id: 1,
+        title: "Women Empowerment Online Platform",
+        category: "Citizen Services (G2C)",
+        description: "An intelligent women's safety app featuring an IVR helpline, instant SOS, and automated police, media, and legal routing.",
+        image: "/images/WomenSafetyAppp.jpeg",
+        tags: ["React JS", "Flutter", "Node JS", "SQL Server", "IVR System", "AWS"],
+        metrics: [
+            { label: "SOS Response Time", value: "<30s" },
+            { label: "Agencies Connected", value: "3+" },
+            { label: "Uptime", value: "99.9%" }
+        ],
+        color: "",
+        gradient: "",
+        featured: true
+    },
+    {
+        id: 2,
+        title: "Campus Management System",
+        category: "EdTech",
+        description: "A unified campus management platform integrating student, staff, and institutional ERP portals.",
+        image: "/images/CampusManagement.jpeg",
+        tags: ["ASP.NET Core", "Entity Framework Core", "Oracle Database", "Bootstrap / jQuery / AJAX", "Crystal Reports / RDLC"],
+        metrics: [
+            { label: "Modules Integrated", value: "10+" },
+            { label: "Process Efficiency", value: "50%" },
+            { label: "Users Onboarded", value: "5K+" }
+        ],
+        color: "",
+        gradient: "",
+        featured: false
+    },
+    {
+        id: 3,
+        title: "Safe City Project",
+        category: "Citizen Services (G2C)",
+        description: "The ultimate command & control platform for an integrated emergency response system — Police-15, Rescue 1122, and a unified inter-agency communication and radio dispatch framework.",
+        image: "/images/SafeCity.jpeg",
+        tags: ["SQL Server", "Oracle DBMS", "NoSQL", "SAN/NAS Storage", "Flutter / React Native", "Java / Python / Node.js"],
+        metrics: [
+            { label: "Agencies Unified", value: "Multi-Agency" },
+            { label: "Real-Time Dispatch", value: "24/7" },
+            { label: "Data Reliability", value: "High Availability" }
+        ],
+        color: "from-blue-600 to-indigo-500",
+        gradient: "from-blue-500/20 via-indigo-500/20 to-transparent",
+        featured: true
+    },
+    {
+        id: 4,
+        title: "AI-Powered Road Maintenance System",
+        category: "Transportation",
+        description: "Next-gen AI and data analytics for smart road monitoring, infrastructure preservation, and maintenance.",
+        image: "/images/AI-Road-Maintenance.jpeg",
+        tags: ["YOLOv6", "Python", "AI", "Computer Vision"],
+        metrics: [
+            { label: "Detection Accuracy", value: "98%" },
+            { label: "Monitoring", value: "Real-Time" },
+            { label: "Maintenance Planning", value: "Automated" }
+        ],
+        color: "",
+        gradient: "",
+        featured: false
+    },
+    {
+        id: 5,
+        title: "Healthcare Management Information System",
+        category: "HealthTech",
+        description: "An end-to-end healthcare platform unifying patient records, clinical workflows, doctor scheduling, and medical billing.",
+        image: "/images/HMIS.png",
+        tags: ["ASP.NET Core", "REST APIs", "Entity Framework Core", "SQL Server", "Responsive UI"],
+        metrics: [
+            { label: "Patient Records Digitized", value: "Full EHR" },
+            { label: "Scheduling Efficiency", value: "60%" },
+            { label: "Billing Accuracy", value: "99%" }
+        ],
+        color: "",
+        gradient: "",
+        featured: false
+    }
+];
+
+
+
+
+const particles = Array.from({ length: 30 }, (_, i) => ({
+    id: i,
+    x: (i * 37) % 100,
+    y: (i * 53) % 100,
+    size: (i % 3) + 1,
+    duration: 10 + (i % 6) * 2,
+    delay: (i % 5) * 0.4,
+    opacity: 0.1 + (i % 4) * 0.06
+}));
+
+// Floating particles component
+function FloatingParticles() {
+    return (
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            {particles.map((particle) => (
+                <motion.div
+                    key={particle.id}
+                    className="absolute rounded-full bg-gradient-to-r from-indigo-400/20 to-purple-400/20"
+                    style={{
+                        width: particle.size,
+                        height: particle.size,
+                        left: `${particle.x}%`,
+                        top: `${particle.y}%`,
+                    }}
+                    animate={{
+                        y: [0, -40, 0],
+                        x: [0, 30, 0],
+                        opacity: [particle.opacity, particle.opacity * 2, particle.opacity],
+                    }}
+                    transition={{
+                        duration: particle.duration,
+                        repeat: Infinity,
+                        delay: particle.delay,
+                        ease: "easeInOut",
+                    }}
+                />
+            ))}
+        </div>
+    );
+}
+
+export default function ProjectsSectionV2() {
+    const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+    const [filter, setFilter] = useState<string>("All");
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    // Get unique categories
+    const categories = ["All", ...new Set(projects.map(p => p.category))];
+
+    // Filter projects
+    const filteredProjects = filter === "All"
+        ? projects
+        : projects.filter(p => p.category === filter);
+
+    // Open modal
+    const openModal = (project: Project) => {
+        setSelectedProject(project);
+    };
+
+    const closeModal = () => {
+        setSelectedProject(null);
+    };
+
+    return (
+        <section className="relative bg-gradient-to-b from-slate-50 via-white to-slate-50 overflow-hidden">
+            {/* Background Elements */}
+            <div className="absolute inset-0">
+                <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-indigo-50/30 via-purple-50/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-gradient-to-tr from-blue-50/20 to-transparent" />
+            </div>
+            <FloatingParticles />
+
+            <div className="page-container relative z-10 section-spacing">
+                {/* Section Header */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7 }}
+                    className="text-center mb-16"
+                >
+
+                    <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900">
+                        <span className="">Featured </span>
+                        <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                            Projects
+                        </span>
+                    </h2>
+                    <p className="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
+                        Explore our success stories and see how we&apos;ve helped businesses transform through technology
+                    </p>
+                </motion.div>
+
+                {/* Filter Buttons */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                    className="flex flex-wrap justify-center gap-2 mb-12"
+                >
+                    {categories.map((category) => (
+                        <button
+                            key={category}
+                            onClick={() => setFilter(category)}
+                            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${filter === category
+                                ? "bg-indigo-600 text-white shadow-lg shadow-indigo-500/25"
+                                : "bg-white text-slate-600 hover:bg-slate-100 border border-slate-200"
+                                }`}
+                        >
+                            {category}
+                        </button>
+                    ))}
+                </motion.div>
+
+                {/* Projects Grid */}
+                <motion.div
+                    ref={containerRef}
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                >
+                    {filteredProjects.map((project, index) => {
+                        return (
+                            <motion.div
+                                key={project.id}
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: index * 0.1 }}
+                                onClick={() => openModal(project)}
+                                className="group cursor-pointer"
+                            >
+                                <div className="relative bg-white rounded-2xl overflow-hidden border border-slate-200/60 shadow-sm hover:shadow-2xl transition-all duration-500 h-full">
+                                    <div className="relative h-48 overflow-hidden">
+                                        <Image
+                                            src={project.image}
+                                            alt={project.title}
+                                            fill
+                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                            className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                        />
+                                        <div className={`absolute inset-0 bg-gradient-to-t ${project.gradient} to-transparent`} />
+                                        {/* Overlay on hover */}
+                                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                                            <div className="flex items-center gap-3">
+                                                <div className="p-3 bg-white/20 backdrop-blur-sm rounded-full">
+                                                    <ZoomIn className="w-6 h-6 text-white" />
+                                                </div>
+                                                <span className="text-white font-medium">View Project</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="p-6">
+                                        <div className="text-xs font-medium text-indigo-600 mb-1">
+                                            {project.category}
+                                        </div>
+                                        <h3 className="text-lg font-semibold text-slate-900 mb-2 group-hover:text-indigo-600 transition-colors">
+                                            {project.title}
+                                        </h3>
+                                        <p className="text-sm text-slate-600 line-clamp-2 mb-4">
+                                            {project.description}
+                                        </p>
+                                        <div className="flex flex-wrap gap-1.5">
+                                            {project.tags.map((tag, idx) => (
+                                                <span key={idx} className="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full">
+                                                    {tag}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        );
+                    })}
+                </motion.div>
+            </div>
+
+            {/* Modal */}
+            <AnimatePresence>
+                {selectedProject && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={closeModal}
+                        className="fixed inset-0 z-50 bg-slate-900/90 backdrop-blur-sm flex items-center justify-center p-4"
+                    >
+                        <motion.div
+                            initial={{ scale: 0.9, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.9, opacity: 0 }}
+                            onClick={(e) => e.stopPropagation()}
+                            className="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-8 shadow-2xl"
+                        >
+                            <div className="flex items-start justify-between mb-6">
+                                <div>
+                                    <div className="text-sm font-medium text-indigo-600 mb-1">
+                                        {selectedProject.category}
+                                    </div>
+                                    <h3 className="text-2xl font-bold text-slate-900">
+                                        {selectedProject.title}
+                                    </h3>
+                                </div>
+                                <button
+                                    onClick={closeModal}
+                                    className="p-2 hover:bg-slate-100 rounded-xl transition-colors"
+                                >
+                                    <X className="w-5 h-5 text-slate-600" />
+                                </button>
+                            </div>
+
+                            <div className="relative h-48 rounded-2xl overflow-hidden mb-6">
+                                <Image
+                                    src={selectedProject.image}
+                                    alt={selectedProject.title}
+                                    fill
+                                    sizes="(max-width: 768px) 100vw, 768px"
+                                    className="object-cover"
+                                />
+                                <div className={`absolute inset-0 bg-gradient-to-t ${selectedProject.gradient} to-transparent`} />
+                            </div>
+
+                            <p className="text-slate-600 leading-relaxed mb-6">
+                                {selectedProject.description}
+                            </p>
+
+                            <div className="grid grid-cols-3 gap-4 mb-6">
+                                {selectedProject.metrics.map((metric, idx) => (
+                                    <div key={idx} className="text-center bg-slate-50 rounded-xl p-4">
+                                        <p className="text-2xl font-bold text-slate-900">{metric.value}</p>
+                                        <p className="text-xs text-slate-500">{metric.label}</p>
+                                    </div>
+                                ))}
+                            </div>
+
+                            <div className="flex flex-wrap gap-2">
+                                {selectedProject.tags.map((tag, idx) => (
+                                    <span key={idx} className="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-sm">
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+
+                            <button
+                                onClick={closeModal}
+                                className="mt-6 w-full bg-slate-900 text-white py-3 rounded-xl font-medium hover:bg-slate-800 transition-colors"
+                            >
+                                Close
+                            </button>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </section>
+    );
+}
