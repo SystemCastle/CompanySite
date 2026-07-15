@@ -186,7 +186,7 @@ export default function AboutSectionV3() {
                         initial={{ opacity: 0, x: -30 }}
                         animate={isInView ? { opacity: 1, x: 0 } : {}}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-2xl p-4 sm:p-5 lg:p-5 border border-slate-700 shadow-2xl shadow-slate-900/40"
+                        className="bg-gradient-to-br from-indigo-900 via-purple-900 to-fuchsia-900 rounded-2xl p-4 sm:p-5 lg:p-5 border border-purple-700/40 shadow-2xl shadow-purple-900/50"
                     >
                         <div className="flex items-center gap-3 mb-5">
                             <div className="p-2 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl shadow-lg shadow-cyan-500/30">
@@ -197,7 +197,7 @@ export default function AboutSectionV3() {
                                 <h3 className="text-base lg:text-lg font-bold text-white">
                                     5 Horizontals
                                 </h3>
-                                <p className="text-xs text-slate-400">
+                                <p className="text-xs text-slate-300">
                                     Our core service areas
                                 </p>
                             </div>
@@ -220,15 +220,15 @@ export default function AboutSectionV3() {
                                         <motion.div
                                             key={index}
                                             whileHover={{ y: -4, scale: 1.05 }}
-                                            className="rounded-xl border border-slate-700 bg-slate-800/80 backdrop-blur-sm py-3 px-2 text-center transition-colors hover:bg-slate-700/80"
+                                            className="rounded-xl border border-white/20 bg-white/10 backdrop-blur-md py-3 px-2 text-center shadow-lg shadow-black/10 transition-colors hover:bg-white/15"
                                         >
                                             <div
-                                                className={`mx-auto mb-2 flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br ${gradient}`}
+                                                className={`mx-auto mb-2 flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br ${gradient} shadow-md`}
                                             >
                                                 <Icon className="h-5 w-5 text-white" />
                                             </div>
 
-                                            <p className="text-xs font-medium text-slate-200">
+                                            <p className="text-xs font-medium text-white/90">
                                                 {item.name}
                                             </p>
                                         </motion.div>
@@ -250,15 +250,15 @@ export default function AboutSectionV3() {
                                         <motion.div
                                             key={index}
                                             whileHover={{ y: -4, scale: 1.05 }}
-                                            className="rounded-xl border border-slate-700 bg-slate-800/80 backdrop-blur-sm py-3 px-2 text-center transition-colors hover:bg-slate-700/80"
+                                            className="rounded-xl border border-white/20 bg-white/10 backdrop-blur-md py-3 px-2 text-center shadow-lg shadow-black/10 transition-colors hover:bg-white/15"
                                         >
                                             <div
-                                                className={`mx-auto mb-2 flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br ${gradient}`}
+                                                className={`mx-auto mb-2 flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br ${gradient} shadow-md`}
                                             >
                                                 <Icon className="h-5 w-5 text-white" />
                                             </div>
 
-                                            <p className="text-xs font-medium text-slate-200 leading-tight">
+                                            <p className="text-xs font-medium text-white/90 leading-tight">
                                                 {item.name}
                                             </p>
                                         </motion.div>
@@ -267,9 +267,6 @@ export default function AboutSectionV3() {
                             </div>
                         </div>
                     </motion.div>
-
-
-
 
                     {/* Verticals */}
                     <motion.div
@@ -315,6 +312,9 @@ export default function AboutSectionV3() {
                         </div>
                     </motion.div>
                 </div>
+
+
+
             </div>
         </section>
 
