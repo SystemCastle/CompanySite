@@ -225,7 +225,7 @@ export default function ServicesSectionV3() {
     ];
 
     return (
-        <section className="relative min-h-[100vh] flex items-center bg-gradient-to-b from-slate-50 via-white to-slate-50 overflow-hidden">
+        <section className="relative min-h-[100vh] flex items-center bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 overflow-hidden">
             {/* Sophisticated gradient orbs */}
             <div className="absolute inset-0 pointer-events-none">
                 <motion.div
@@ -234,15 +234,16 @@ export default function ServicesSectionV3() {
                         y: [0, -50, 0],
                     }}
                     transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute -top-20 -right-20 w-[500px] h-[500px] rounded-full bg-gradient-to-r from-indigo-500/5 via-purple-500/5 to-pink-500/5 blur-3xl"
+                    className="absolute -top-20 -right-20 w-[500px] h-[500px] rounded-full bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 blur-3xl"
                 />
+
                 <motion.div
                     animate={{
                         x: [0, -80, 0],
                         y: [0, 50, 0],
                     }}
                     transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute -bottom-20 -left-20 w-[400px] h-[400px] rounded-full bg-gradient-to-r from-blue-500/5 via-cyan-500/5 to-emerald-500/5 blur-3xl"
+                    className="absolute -bottom-20 -left-20 w-[400px] h-[400px] rounded-full bg-gradient-to-r from-blue-500/10 via-cyan-500/10 to-emerald-500/10 blur-3xl"
                 />
             </div>
 
@@ -254,10 +255,10 @@ export default function ServicesSectionV3() {
                     transition={{ duration: 0.7, ease: "easeOut" }}
                     className="text-center mb-6"
                 >
-
-                    <h2 className="text-4xl italic sm:text-5xl lg:text-5xl font-bold text-slate-900 leading-tight">
+                    <h2 className="text-4xl italic sm:text-5xl lg:text-5xl font-bold text-white leading-tight">
                         <span className="block">We Empower</span>
-                        <span className="bg-gradient-to-r from-slate-900 to-slate-600 bg-clip-text text-transparent">
+
+                        <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500 bg-clip-text text-transparent">
                             We Deliver
                         </span>
                     </h2>
@@ -268,7 +269,7 @@ export default function ServicesSectionV3() {
                         transition={{ duration: 0.6, delay: 0.3 }}
                         className="mt-4 max-w-2xl mx-auto"
                     >
-                        <p className="text-lg text-slate-600 leading-relaxed">
+                        <p className="text-lg text-slate-300 leading-relaxed">
                             System Castle is an AI native global Digital Transformation services provider with experience in Telecom and software development domains in USA, Middle East & Asia.
                         </p>
                     </motion.div>
@@ -291,6 +292,7 @@ export default function ServicesSectionV3() {
                 >
                     {services.map((service, index) => {
                         const Icon = service.icon;
+
                         return (
                             <motion.div
                                 key={index}
@@ -315,7 +317,6 @@ export default function ServicesSectionV3() {
                         );
                     })}
                 </motion.div>
-
             </div>
         </section>
     );

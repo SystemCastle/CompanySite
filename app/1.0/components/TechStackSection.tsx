@@ -50,7 +50,7 @@ const techRows: TechRow[] = [
 ];
 export default function TechStackSection() {
     return (
-        <section className="relative overflow-hidden bg-slate-50">
+        <section className="relative overflow-hidden bg-white">
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white via-slate-50 to-white" />
 
             <div className="page-container relative z-10 section-spacing">

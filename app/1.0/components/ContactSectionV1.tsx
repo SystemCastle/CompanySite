@@ -51,6 +51,7 @@ export default function ContactSectionV1() {
 
     return (
         <section className="bg-white">
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white via-slate-50 to-white" />
             <div className="page-container section-spacing">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                     {/* Left - Form */}
