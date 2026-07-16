@@ -17,7 +17,7 @@ const techRows: TechRow[] = [
             { name: "Dart", logoSrc: "dart" },
             { name: "SQL", logoSrc: "mysql" },
             { name: "HTML5", logoSrc: "html5" },
-            { name: "CSS3", logoSrc: "css3" },
+            { name: "CSS3", logoSrc: "css" },
         ],
     },
     {
