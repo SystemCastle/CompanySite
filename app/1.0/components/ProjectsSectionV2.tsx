@@ -103,51 +103,9 @@ const projects: Project[] = [
         gradient: "",
         featured: false
     }
-];
+]
 
 
-
-
-const particles = Array.from({ length: 30 }, (_, i) => ({
-    id: i,
-    x: (i * 37) % 100,
-    y: (i * 53) % 100,
-    size: (i % 3) + 1,
-    duration: 10 + (i % 6) * 2,
-    delay: (i % 5) * 0.4,
-    opacity: 0.1 + (i % 4) * 0.06
-}));
-
-// Floating particles component
-function FloatingParticles() {
-    return (
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            {particles.map((particle) => (
-                <motion.div
-                    key={particle.id}
-                    className="absolute rounded-full bg-gradient-to-r from-indigo-400/20 to-purple-400/20"
-                    style={{
-                        width: particle.size,
-                        height: particle.size,
-                        left: `${particle.x}%`,
-                        top: `${particle.y}%`,
-                    }}
-                    animate={{
-                        y: [0, -40, 0],
-                        x: [0, 30, 0],
-                        opacity: [particle.opacity, particle.opacity * 2, particle.opacity],
-                    }}
-                    transition={{
-                        duration: particle.duration,
-                        repeat: Infinity,
-                        delay: particle.delay,
-                        ease: "easeInOut",
-                    }}
-                />
-            ))}
-        </div>
-    );
-}
 
 export default function ProjectsSectionV2() {
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -172,13 +130,27 @@ export default function ProjectsSectionV2() {
     };
 
     return (
-        <section className="relative bg-gradient-to-b from-slate-50 via-white to-slate-50 overflow-hidden">
+        <section className="relative overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
             {/* Background Elements */}
-            <div className="absolute inset-0">
-                <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-indigo-50/30 via-purple-50/20 to-transparent" />
-                <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-gradient-to-tr from-blue-50/20 to-transparent" />
+            <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-indigo-500/10 via-purple-500/5 to-transparent" />
+                <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-gradient-to-tr from-cyan-500/10 via-blue-500/5 to-transparent" />
+
+                {/* Glass glow */}
+                <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[40rem] h-[40rem] rounded-full bg-indigo-500/5 blur-3xl" />
+                <div className="absolute bottom-0 right-0 w-[28rem] h-[28rem] rounded-full bg-cyan-500/5 blur-3xl" />
+
+                {/* Grid */}
+                <div
+                    className="absolute inset-0 opacity-[0.025]"
+                    style={{
+                        backgroundImage:
+                            "radial-gradient(circle at 1px 1px, #ffffff 1px, transparent 0)",
+                        backgroundSize: "40px 40px",
+                    }}
+                />
             </div>
-            <FloatingParticles />
+
 
             <div className="page-container relative z-10 section-spacing">
                 {/* Section Header */}
@@ -188,14 +160,14 @@ export default function ProjectsSectionV2() {
                     transition={{ duration: 0.7 }}
                     className="text-center mb-16"
                 >
-
-                    <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900">
-                        <span className="">Featured </span>
-                        <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                    <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white">
+                        <span>Featured </span>
+                        <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                             Projects
                         </span>
                     </h2>
-                    <p className="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
+
+                    <p className="mt-4 text-lg text-slate-400 max-w-2xl mx-auto">
                         Explore our success stories and see how we&apos;ve helped businesses transform through technology
                     </p>
                 </motion.div>
@@ -212,8 +184,8 @@ export default function ProjectsSectionV2() {
                             key={category}
                             onClick={() => setFilter(category)}
                             className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${filter === category
-                                ? "bg-indigo-600 text-white shadow-lg shadow-indigo-500/25"
-                                : "bg-white text-slate-600 hover:bg-slate-100 border border-slate-200"
+                                ? "bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white shadow-lg shadow-indigo-500/25"
+                                : "bg-white/5 backdrop-blur-md border border-white/10 text-slate-300 hover:bg-white/10 hover:text-white"
                                 }`}
                         >
                             {category}
@@ -236,7 +208,7 @@ export default function ProjectsSectionV2() {
                                 onClick={() => openModal(project)}
                                 className="group cursor-pointer"
                             >
-                                <div className="relative bg-white rounded-2xl overflow-hidden border border-slate-200/60 shadow-sm hover:shadow-2xl transition-all duration-500 h-full">
+                                <div className="relative bg-gradient-to-br from-slate-900 via-slate-900/95 to-slate-950 rounded-2xl overflow-hidden border border-white/10 shadow-sm hover:shadow-2xl transition-all duration-500 h-full">
                                     <div className="relative h-48 overflow-hidden">
                                         <Image
                                             src={project.image}
@@ -245,31 +217,42 @@ export default function ProjectsSectionV2() {
                                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                             className="object-cover transition-transform duration-700 group-hover:scale-105"
                                         />
+
                                         <div className={`absolute inset-0 bg-gradient-to-t ${project.gradient} to-transparent`} />
-                                        {/* Overlay on hover */}
-                                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+
+                                        {/* Overlay */}
+                                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                                             <div className="flex items-center gap-3">
-                                                <div className="p-3 bg-white/20 backdrop-blur-sm rounded-full">
+                                                <div className="p-3 bg-white/10 backdrop-blur-md rounded-full border border-white/10">
                                                     <ZoomIn className="w-6 h-6 text-white" />
                                                 </div>
-                                                <span className="text-white font-medium">View Project</span>
+
+                                                <span className="text-white font-medium">
+                                                    View Project
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div className="p-6">
-                                        <div className="text-xs font-medium text-indigo-600 mb-1">
+                                        <div className="text-xs font-medium text-indigo-300 mb-1">
                                             {project.category}
                                         </div>
-                                        <h3 className="text-lg font-semibold text-slate-900 mb-2 group-hover:text-indigo-600 transition-colors">
+
+                                        <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-indigo-300 transition-colors">
                                             {project.title}
                                         </h3>
-                                        <p className="text-sm text-slate-600 line-clamp-2 mb-4">
+
+                                        <p className="text-sm text-slate-400 line-clamp-2 mb-4">
                                             {project.description}
                                         </p>
+
                                         <div className="flex flex-wrap gap-1.5">
                                             {project.tags.map((tag, idx) => (
-                                                <span key={idx} className="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full">
+                                                <span
+                                                    key={idx}
+                                                    className="text-xs bg-white/5 backdrop-blur-sm border border-white/10 text-slate-300 px-2 py-0.5 rounded-full"
+                                                >
                                                     {tag}
                                                 </span>
                                             ))}
@@ -281,7 +264,6 @@ export default function ProjectsSectionV2() {
                     })}
                 </motion.div>
             </div>
-
             {/* Modal */}
             <AnimatePresence>
                 {selectedProject && (
@@ -290,29 +272,31 @@ export default function ProjectsSectionV2() {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         onClick={closeModal}
-                        className="fixed inset-0 z-50 bg-slate-900/90 backdrop-blur-sm flex items-center justify-center p-4"
+                        className="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-sm flex items-center justify-center p-4"
                     >
                         <motion.div
                             initial={{ scale: 0.9, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
                             exit={{ scale: 0.9, opacity: 0 }}
                             onClick={(e) => e.stopPropagation()}
-                            className="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-8 shadow-2xl"
+                            className="bg-gradient-to-br from-slate-900 via-slate-900/95 to-slate-950 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-8 shadow-2xl border border-white/10"
                         >
                             <div className="flex items-start justify-between mb-6">
                                 <div>
-                                    <div className="text-sm font-medium text-indigo-600 mb-1">
+                                    <div className="text-sm font-medium text-indigo-300 mb-1">
                                         {selectedProject.category}
                                     </div>
-                                    <h3 className="text-2xl font-bold text-slate-900">
+
+                                    <h3 className="text-2xl font-bold text-white">
                                         {selectedProject.title}
                                     </h3>
                                 </div>
+
                                 <button
                                     onClick={closeModal}
-                                    className="p-2 hover:bg-slate-100 rounded-xl transition-colors"
+                                    className="p-2 hover:bg-white/10 rounded-xl transition-colors"
                                 >
-                                    <X className="w-5 h-5 text-slate-600" />
+                                    <X className="w-5 h-5 text-slate-300" />
                                 </button>
                             </div>
 
@@ -327,22 +311,32 @@ export default function ProjectsSectionV2() {
                                 <div className={`absolute inset-0 bg-gradient-to-t ${selectedProject.gradient} to-transparent`} />
                             </div>
 
-                            <p className="text-slate-600 leading-relaxed mb-6">
+                            <p className="text-slate-300 leading-relaxed mb-6">
                                 {selectedProject.description}
                             </p>
 
                             <div className="grid grid-cols-3 gap-4 mb-6">
                                 {selectedProject.metrics.map((metric, idx) => (
-                                    <div key={idx} className="text-center bg-slate-50 rounded-xl p-4">
-                                        <p className="text-2xl font-bold text-slate-900">{metric.value}</p>
-                                        <p className="text-xs text-slate-500">{metric.label}</p>
+                                    <div
+                                        key={idx}
+                                        className="text-center bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4"
+                                    >
+                                        <p className="text-2xl font-bold text-white">
+                                            {metric.value}
+                                        </p>
+                                        <p className="text-xs text-slate-400">
+                                            {metric.label}
+                                        </p>
                                     </div>
                                 ))}
                             </div>
 
                             <div className="flex flex-wrap gap-2">
                                 {selectedProject.tags.map((tag, idx) => (
-                                    <span key={idx} className="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-sm">
+                                    <span
+                                        key={idx}
+                                        className="px-3 py-1 bg-white/5 backdrop-blur-sm border border-white/10 text-slate-300 rounded-full text-sm"
+                                    >
                                         {tag}
                                     </span>
                                 ))}
@@ -350,7 +344,7 @@ export default function ProjectsSectionV2() {
 
                             <button
                                 onClick={closeModal}
-                                className="mt-6 w-full bg-slate-900 text-white py-3 rounded-xl font-medium hover:bg-slate-800 transition-colors"
+                                className="mt-6 w-full bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white py-3 rounded-xl font-medium hover:opacity-90 transition-colors"
                             >
                                 Close
                             </button>
