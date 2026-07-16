@@ -20,6 +20,14 @@
   z-index: 0;
 }
 
+.videoFallback {
+  position: absolute;
+  inset: 0;
+  background: #1a1a1a; /* pick a color close to your video's dominant tone */
+  transition: opacity 0.4s ease;
+  z-index: 0;
+}
+
 .videoBackground.active {
   opacity: 1;
   z-index: 0;

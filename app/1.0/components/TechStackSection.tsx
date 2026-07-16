@@ -15,10 +15,13 @@ const techRows: TechRow[] = [
             { name: "Go", logoSrc: "go" },
             { name: "PHP", logoSrc: "php" },
             { name: "Dart", logoSrc: "dart" },
+            { name: "SQL", logoSrc: "mysql" },
+            { name: "HTML5", logoSrc: "html5" },
+            { name: "CSS3", logoSrc: "css3" },
         ],
     },
     {
-        title: "Frameworks",
+        title: "Frameworks & Libraries",
         reverse: true,
         items: [
             { name: "React", logoSrc: "react" },
@@ -30,8 +33,19 @@ const techRows: TechRow[] = [
             { name: "Angular", logoSrc: "angular" },
             { name: "Vue", logoSrc: "vuedotjs" },
             { name: "Flutter", logoSrc: "flutter" },
-            { name: "Tailwind", logoSrc: "tailwindcss" },
+            { name: "Tailwind CSS", logoSrc: "tailwindcss" },
             { name: "WordPress", logoSrc: "wordpress" },
+
+            { name: "React Native", logoSrc: "react" },
+            { name: "ASP.NET Core", logoSrc: "dotnet" },
+            { name: "Entity Framework Core", logoSrc: "dotnet" },
+            { name: "Bootstrap", logoSrc: "bootstrap" },
+            { name: "REST API", logoSrc: "openapiinitiative" },
+            { name: "YOLOv6", logoSrc: "opencv" },
+            { name: "OpenCV", logoSrc: "opencv" },
+            { name: "TensorFlow", logoSrc: "tensorflow" },
+            { name: "PyTorch", logoSrc: "pytorch" },
+            { name: "RDLC Reports", logoSrc: "microsoft" },
         ],
     },
     {
@@ -45,9 +59,13 @@ const techRows: TechRow[] = [
             { name: "Supabase", logoSrc: "supabase" },
             { name: "SQLite", logoSrc: "sqlite" },
             { name: "MariaDB", logoSrc: "mariadb" },
+
+            { name: "Microsoft SQL Server", logoSrc: "microsoftsqlserver" },
+            { name: "Oracle Database", logoSrc: "oracle" },
         ],
     },
 ];
+
 export default function TechStackSection() {
     return (
         <section className="relative overflow-hidden bg-white">

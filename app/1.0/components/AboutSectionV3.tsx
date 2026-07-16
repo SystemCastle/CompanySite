@@ -105,7 +105,7 @@ export default function AboutSectionV3() {
                             <motion.div
                                 key={index}
                                 whileHover={{ scale: 1.03, y: -4 }}
-                                className={`relative w-full sm:w-[200px] bg-gradient-to-br ${stat.gradient} rounded-xl p-4 sm:p-3 lg:p-4 text-white shadow-xl shadow-indigo-500/20 overflow-hidden group`}
+                                className={`relative w-full sm:w-[205px] bg-gradient-to-br ${stat.gradient} rounded-xl p-4 sm:p-3 lg:p-4 text-white shadow-xl shadow-indigo-500/20 overflow-hidden group`}
                             >
                                 {/* Background Pattern */}
                                 <div className="absolute inset-0 opacity-10">
@@ -114,7 +114,7 @@ export default function AboutSectionV3() {
                                 </div>
 
                                 <div className="relative z-10">
-                                    <div className="flex items-center gap-3">
+                                    <div className="flex items-center justify-center gap-4">
                                         <div className="p-2.5 sm:p-2 bg-white/20 backdrop-blur-sm rounded-lg group-hover:scale-110 transition-transform">
                                             <Icon className="w-5 h-5" />
                                         </div>
