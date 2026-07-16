@@ -66,55 +66,9 @@ export default function AboutSectionV3() {
 
         <section
             ref={sectionRef}
-            className="relative min-h-[100svh] bg-white flex items-center"
+            className="relative min-h-[100svh] bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 flex items-center"
         >
-
-
-            {/* Premium Background */}
-            <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-indigo-50/20" />
-
-                {/* Animated Mesh */}
-                <div className="absolute inset-0 opacity-20">
-                    <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-indigo-500/10 via-purple-500/5 to-transparent" />
-                    <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-gradient-to-tr from-blue-500/10 via-cyan-500/5 to-transparent" />
-                </div>
-
-                {/* Large Orbs */}
-                <motion.div
-                    animate={{
-                        x: [0, 120, 0],
-                        y: [0, -80, 0],
-                    }}
-                    transition={{ duration: 35, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute top-1/4 right-1/4 w-72 h-72 lg:w-[460px] lg:h-[460px] rounded-full bg-gradient-to-r from-indigo-500/5 via-purple-500/5 to-pink-500/5 blur-3xl"
-                />
-                <motion.div
-                    animate={{
-                        x: [0, -100, 0],
-                        y: [0, 80, 0],
-                    }}
-                    transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute bottom-1/4 left-1/4 w-64 h-64 lg:w-[360px] lg:h-[360px] rounded-full bg-gradient-to-r from-blue-500/5 via-cyan-500/5 to-emerald-500/5 blur-3xl"
-                />
-
-                {/* Grid */}
-                <div
-                    className="absolute inset-0 opacity-[0.02]"
-                    style={{
-                        backgroundImage: `radial-gradient(circle at 1px 1px, #000 1px, transparent 0)`,
-                        backgroundSize: '40px 40px',
-                    }}
-                />
-
-                {/* Decorative Lines */}
-                <div className="absolute top-1/3 right-0 w-96 h-px bg-gradient-to-l from-indigo-500/20 to-transparent" />
-                <div className="absolute bottom-1/3 left-0 w-96 h-px bg-gradient-to-r from-purple-500/20 to-transparent" />
-            </div>
-
-            {/* <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-18 lg:py-12"> */}
             <div className="page-container relative z-10 section-spacing">
-
                 {/* Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -123,25 +77,26 @@ export default function AboutSectionV3() {
                     className="text-center mb-7 lg:mb-6"
                 >
                     <h2 className="text-[2rem] sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight">
-                        <span className="block text-slate-900">Intelligent Automation</span>
-                        <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                        <span className="block text-white">
+                            Intelligent Automation
+                        </span>
+
+                        <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500 bg-clip-text text-transparent">
                             Professional Services
                         </span>
                     </h2>
-                    <p className="mt-3 text-sm sm:text-base lg:text-base text-slate-600 max-w-xl lg:max-w-2xl mx-auto leading-relaxed">
+
+                    <p className="mt-3 text-sm sm:text-base lg:text-base text-slate-300 max-w-xl lg:max-w-2xl mx-auto leading-relaxed">
                         An ecosystem of telecom expertise and software innovation, built to solve your toughest digital challenges.
                     </p>
                 </motion.div>
-
                 <div className="pb-3" />
-
 
                 {/* Stats Grid - Hexagon Style */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.6, delay: 0.1 }}
-                    // className="grid grid-cols-1 sm:grid-cols-3 gap-3 lg:gap-4 mb-5 lg:mb-5"
                     className="flex flex-col sm:flex-row justify-between gap-3 lg:gap-4 mb-5 lg:mb-5"
                 >
                     {stats.map((stat, index) => {
@@ -150,8 +105,7 @@ export default function AboutSectionV3() {
                             <motion.div
                                 key={index}
                                 whileHover={{ scale: 1.03, y: -4 }}
-                                // className={`relative bg-gradient-to-br ${stat.gradient} rounded-xl p-4 sm:p-3 lg:p-4 text-white shadow-xl shadow-indigo-500/20 overflow-hidden group`}
-                                className={`relative w-full sm:w-[200px] bg-gradient-to-br ${stat.gradient} rounded-xl p-4 sm:p-3 lg:p-4 text-white shadow-xl shadow-indigo-500/20 overflow-hidden group`}
+                                className={`relative w-full sm:w-[205px] bg-gradient-to-br ${stat.gradient} rounded-xl p-4 sm:p-3 lg:p-4 text-white shadow-xl shadow-indigo-500/20 overflow-hidden group`}
                             >
                                 {/* Background Pattern */}
                                 <div className="absolute inset-0 opacity-10">
@@ -160,7 +114,7 @@ export default function AboutSectionV3() {
                                 </div>
 
                                 <div className="relative z-10">
-                                    <div className="flex items-center gap-3">
+                                    <div className="flex items-center justify-center gap-4">
                                         <div className="p-2.5 sm:p-2 bg-white/20 backdrop-blur-sm rounded-lg group-hover:scale-110 transition-transform">
                                             <Icon className="w-5 h-5" />
                                         </div>
@@ -176,7 +130,6 @@ export default function AboutSectionV3() {
                 </motion.div>
 
                 <div className="pb-5" />
-
 
                 {/* Horizontals & Verticals - Side by Side */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
