@@ -50,11 +50,12 @@ export default function ContactSectionV1() {
     ];
 
     return (
-        <section className="bg-white">
+        <section className="relative bg-white">
+            <div className="z-1 pointer-events-none absolute inset-0 bg-gradient-to-b from-white via-slate-50 to-white" />
             <div className="page-container section-spacing">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                     {/* Left - Form */}
-                    <div className="order-1 bg-white rounded-2xl p-8">
+                    <div className="z-2 order-1 bg-white rounded-2xl p-8">
                         <h2 className="mb-8 text-3xl sm:text-3xl font-bold text-slate-900">
                             CONTACT US
                         </h2>
@@ -143,7 +144,7 @@ export default function ContactSectionV1() {
                     </div>
 
                     {/* Right - Map & Locations */}
-                    <div className="order-2 space-y-6 mt-12 lg:mt-12">
+                    <div className="z-2 order-2 space-y-6 mt-12 lg:mt-12">
                         {/* Map */}
                         <div className="bg-slate-100 rounded-2xl overflow-hidden h-[300px] sm:h-[300px] lg:h-[350px] relative">
                             <iframe

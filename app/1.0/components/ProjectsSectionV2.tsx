@@ -25,19 +25,30 @@ interface Project {
 const projects: Project[] = [
     {
         id: 1,
-        title: "Women Empowerment Online Platform",
-        category: "Citizen Services (G2C)",
-        description: "An intelligent women's safety app featuring an IVR helpline, instant SOS, and automated police, media, and legal routing.",
-        image: "/images/WomenSafetyAppp.jpeg",
-        tags: ["React JS", "Flutter", "Node JS", "SQL Server", "IVR System", "AWS"],
+        title: "Healthcare Management Information System",
+        category: "HealthTech",
+        description: "An end-to-end healthcare platform unifying patient records, clinical workflows, doctor scheduling, and medical billing.",
+        image: "/images/HMIS.png",
+        tags: [
+            "ASP.NET Core",
+            "Entity Framework Core",
+            "Microsoft SQL Server",
+            "React JS",
+            "React Native",
+            "Next JS",
+            "RESTful APIs",
+            "Reporting & Analytics",
+            "Responsive Web UI"
+        ],
+
         metrics: [
-            { label: "SOS Response Time", value: "<30s" },
-            { label: "Agencies Connected", value: "3+" },
-            { label: "Uptime", value: "99.9%" }
+            { label: "Patient Records Digitized", value: "Full EHR" },
+            { label: "Scheduling Efficiency", value: "60%" },
+            { label: "Billing Accuracy", value: "99%" }
         ],
         color: "",
         gradient: "",
-        featured: true
+        featured: false
     },
     {
         id: 2,
@@ -45,7 +56,7 @@ const projects: Project[] = [
         category: "EdTech",
         description: "A unified campus management platform integrating student, staff, and institutional ERP portals.",
         image: "/images/CampusManagement.jpeg",
-        tags: ["ASP.NET Core", "Entity Framework Core", "Oracle Database", "Bootstrap / jQuery / AJAX", "Crystal Reports / RDLC"],
+        tags: ["ASP.NET Core", "Entity Framework Core", "Microsoft SQL Server", "React Native", "Bootstrap", "RDLC Reports", "REST APIS", "Next JS"],
         metrics: [
             { label: "Modules Integrated", value: "10+" },
             { label: "Process Efficiency", value: "50%" },
@@ -89,20 +100,20 @@ const projects: Project[] = [
     },
     {
         id: 5,
-        title: "Healthcare Management Information System",
-        category: "HealthTech",
-        description: "An end-to-end healthcare platform unifying patient records, clinical workflows, doctor scheduling, and medical billing.",
-        image: "/images/HMIS.png",
-        tags: ["ASP.NET Core", "REST APIs", "Entity Framework Core", "SQL Server", "Responsive UI"],
+        title: "Women Safety Mobile App",
+        category: "Citizen Services (G2C)",
+        description: "An intelligent women's safety app featuring an IVR helpline, instant SOS, and automated police, media, and legal routing.",
+        image: "/images/WomenSafetyAppp.jpeg",
+        tags: ["React JS", "Flutter", "Node JS", "SQL Server", "IVR System", "AWS"],
         metrics: [
-            { label: "Patient Records Digitized", value: "Full EHR" },
-            { label: "Scheduling Efficiency", value: "60%" },
-            { label: "Billing Accuracy", value: "99%" }
+            { label: "SOS Response Time", value: "<30s" },
+            { label: "Agencies Connected", value: "3+" },
+            { label: "Uptime", value: "99.9%" }
         ],
         color: "",
         gradient: "",
-        featured: false
-    }
+        featured: true
+    },
 ]
 
 
