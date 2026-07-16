@@ -3,6 +3,7 @@
 export const iconUrl = (value: string): string => {
     if (value.startsWith("http://") || value.startsWith("https://") || value.startsWith("/")) {
         return value;
+
     }
 
     return `https://cdn.simpleicons.org/${value}`;
