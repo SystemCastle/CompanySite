@@ -140,7 +140,7 @@ export default function AboutSectionV3() {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 backdrop-blur-sm rounded-2xl p-4 sm:p-5 lg:p-5 border border-slate-700 shadow-2xl shadow-slate-900/40"
                     >
-                        <div className="flex items-center justify-center gap-3 mb-3">
+                        <div className="flex items-center justify-center gap-3 mb-5">
                             <div className="p-2 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl shadow-lg shadow-cyan-500/30">
                                 <Layers className="w-5 h-5 text-white" />
                             </div>
@@ -197,7 +197,7 @@ export default function AboutSectionV3() {
                         transition={{ duration: 0.6, delay: 0.3 }}
                         className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 backdrop-blur-sm rounded-2xl p-4 sm:p-5 lg:p-5 border border-slate-700 shadow-2xl shadow-slate-900/40"
                     >
-                        <div className="flex items-center justify-center gap-3 mb-3">
+                        <div className="flex items-center justify-center gap-3 mb-5">
                             <div className="p-2 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl shadow-lg shadow-emerald-500/30">
                                 <Building2 className="w-5 h-5 text-white" />
                             </div>
