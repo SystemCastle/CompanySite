@@ -156,7 +156,6 @@ export default function HeroV2() {
     return () => {
       first.removeEventListener('loadeddata', handleLoadedData)
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
