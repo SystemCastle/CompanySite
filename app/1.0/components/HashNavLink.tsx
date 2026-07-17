@@ -22,7 +22,7 @@ export default function HashNavLink({
     className,
     children,
     onClick,
-    scrollOffset = 72,
+    scrollOffset = 30,
 }: HashNavLinkProps) {
     const pathname = usePathname();
 
