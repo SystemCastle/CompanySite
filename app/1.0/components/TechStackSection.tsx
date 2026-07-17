@@ -38,14 +38,14 @@ const techRows: TechRow[] = [
 
             { name: "React Native", logoSrc: "react" },
             { name: "ASP.NET Core", logoSrc: "dotnet" },
-            { name: "Entity Framework Core", logoSrc: "dotnet" },
+            // { name: "Entity Framework Core", logoSrc: "dotnet" },
             { name: "Bootstrap", logoSrc: "bootstrap" },
             { name: "REST API", logoSrc: "openapiinitiative" },
             // { name: "YOLOv6", logoSrc: "opencv" },
             { name: "OpenCV", logoSrc: "opencv" },
             { name: "TensorFlow", logoSrc: "tensorflow" },
             { name: "PyTorch", logoSrc: "pytorch" },
-            { name: "RDLC Reports", logoSrc: "microsoft" },
+            // { name: "RDLC Reports", logoSrc: "microsoft" },
         ],
     },
     {
@@ -60,8 +60,8 @@ const techRows: TechRow[] = [
             { name: "SQLite", logoSrc: "sqlite" },
             { name: "MariaDB", logoSrc: "mariadb" },
 
-            { name: "Microsoft SQL Server", logoSrc: "microsoftsqlserver" },
-            { name: "Oracle Database", logoSrc: "oracle" },
+            { name: "MS SQL Server", logoSrc: "/company/ms_sql_server.webp" },
+            { name: "Oracle", logoSrc: "/company/oracle_db.png" },
         ],
     },
 ];
@@ -72,11 +72,11 @@ export default function TechStackSection() {
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white via-slate-50 to-white" />
 
             <div className="page-container relative z-10 section-spacing">
-                <div className="mx-auto mb-10 max-w-2xl text-center">
+                <div className="mx-auto mb-10 max-w-3xl text-center">
                     <h2 className="mt-3 text-2xl font-bold tracking-tight text-slate-950 sm:text-3xl lg:text-4xl">
                         Technologies we build with
                     </h2>
-                    <p className="mt-3 text-sm leading-6 text-slate-600 sm:text-base">
+                    <p className="mt-3 text-pretty text-sm leading-6 text-slate-600 sm:text-base">
                         A practical stack covering languages, frameworks, and databases for modern product delivery.
                     </p>
                 </div>

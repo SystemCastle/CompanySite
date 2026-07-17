@@ -26,16 +26,16 @@ export default function AboutSectionV3() {
 
     const stats = [
         {
-            icon: BarChart3,
-            value: "1000+",
-            label: "Processes Worked On",
-            gradient: "from-indigo-500 to-purple-600"
-        },
-        {
             icon: Layers,
             value: "5",
             label: "Horizontals",
             gradient: "from-blue-500 to-cyan-600"
+        },
+        {
+            icon: BarChart3,
+            value: "1000+",
+            label: "Processes Worked On",
+            gradient: "from-indigo-500 to-purple-600"
         },
         {
             icon: Building2,
@@ -86,7 +86,7 @@ export default function AboutSectionV3() {
                         </span>
                     </h2>
 
-                    <p className="mt-3 text-sm sm:text-base lg:text-base text-slate-300 max-w-xl lg:max-w-2xl mx-auto leading-relaxed">
+                    <p className="mt-3 text-sm sm:text-base lg:text-base text-pretty text-slate-300 max-w-2xl lg:max-w-3xl mx-auto leading-relaxed">
                         An ecosystem of telecom expertise and software innovation, built to solve your toughest digital challenges.
                     </p>
                 </motion.div>
@@ -97,7 +97,7 @@ export default function AboutSectionV3() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.6, delay: 0.1 }}
-                    className="flex flex-col sm:flex-row justify-between gap-3 lg:gap-4 mb-5 lg:mb-5"
+                    className="flex flex-col items-center sm:flex-row sm:items-stretch justify-between gap-3 lg:gap-4 mb-5 lg:mb-5"
                 >
                     {stats.map((stat, index) => {
                         const Icon = stat.icon;
@@ -105,7 +105,7 @@ export default function AboutSectionV3() {
                             <motion.div
                                 key={index}
                                 whileHover={{ scale: 1.03, y: -4 }}
-                                className={`relative w-full sm:w-[205px] bg-gradient-to-br ${stat.gradient} rounded-xl p-4 sm:p-3 lg:p-4 text-white shadow-xl shadow-indigo-500/20 overflow-hidden group`}
+                                className={`relative w-[210px] bg-gradient-to-br ${stat.gradient} rounded-xl p-4 sm:p-3 lg:p-4 text-white shadow-xl shadow-indigo-500/20 overflow-hidden group`}
                             >
                                 {/* Background Pattern */}
                                 <div className="absolute inset-0 opacity-10">

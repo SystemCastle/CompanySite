@@ -88,7 +88,17 @@ const projects: Project[] = [
         category: "Transportation",
         description: "Next-gen AI and data analytics for smart road monitoring, infrastructure preservation, and maintenance.",
         image: "/images/AI-Road-Maintenance.jpeg",
-        tags: ["YOLOv6", "Python", "AI", "Computer Vision"],
+        // tags: ["YOLOv6", "Python", "AI", "Computer Vision"],
+        tags: [
+            "PostgreSQL",
+            "TensorFlow",
+            "OpenCV",
+            "PowerBI",
+            "Yolo V4",
+            "GeoServer",
+            "React",
+            "Python"
+        ],
         metrics: [
             { label: "Detection Accuracy", value: "98%" },
             { label: "Monitoring", value: "Real-Time" },
@@ -178,7 +188,7 @@ export default function ProjectsSectionV2() {
                         </span>
                     </h2>
 
-                    <p className="mt-4 text-lg text-slate-400 max-w-2xl mx-auto">
+                    <p className="mt-4 text-lg text-pretty text-slate-400 max-w-3xl mx-auto">
                         Explore our success stories and see how we&apos;ve helped businesses transform through technology
                     </p>
                 </motion.div>
