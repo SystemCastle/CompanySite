@@ -267,9 +267,9 @@ export default function ServicesSectionV3() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.6, delay: 0.3 }}
-                        className="mt-4 max-w-2xl mx-auto"
+                        className="mt-4 max-w-3xl mx-auto"
                     >
-                        <p className="text-lg text-slate-300 leading-relaxed">
+                        <p className="text-lg text-pretty text-slate-300 leading-relaxed">
                             System Castle is an AI native global Digital Transformation services provider with experience in Telecom and software development domains in USA, Middle East & Asia.
                         </p>
                     </motion.div>

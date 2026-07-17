@@ -11,10 +11,14 @@ export default function MarqueeTrack({ items, rowTitle, reverse = false }: { ite
                 <div className={styles['tech-item']} key={`${rowTitle}-${item.name}-${index}`}>
                     <span
                         className={styles['tech-logo']}
-                        role="img"
-                        aria-label={`${item.name} logo`}
-                        style={{ backgroundImage: `url(${iconUrl(item.logoSrc)})` }}
-                    />
+                    >
+                        <span
+                            className={styles['tech-logo-image']}
+                            role="img"
+                            aria-label={`${item.name} logo`}
+                            style={{ backgroundImage: `url(${iconUrl(item.logoSrc)})` }}
+                        />
+                    </span>
                     <span className={styles['tech-name']}>{item.name}</span>
                 </div>
             ))}
