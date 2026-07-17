@@ -189,7 +189,7 @@ export default function ProjectsSectionV2() {
                     </h2>
 
                     <p className="mt-4 text-lg text-pretty text-slate-400 max-w-3xl mx-auto">
-                        Explore our success stories and see how we&apos;ve helped businesses transform through technology
+                        Explore our success stories and see how we&apos;ve helped businesses transform through technology and innovation.
                     </p>
                 </motion.div>
 

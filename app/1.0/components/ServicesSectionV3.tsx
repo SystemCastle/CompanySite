@@ -269,8 +269,9 @@ export default function ServicesSectionV3() {
                         transition={{ duration: 0.6, delay: 0.3 }}
                         className="mt-4 max-w-3xl mx-auto"
                     >
-                        <p className="text-lg text-pretty text-slate-300 leading-relaxed">
-                            System Castle is an AI native global Digital Transformation services provider with experience in Telecom and software development domains in USA, Middle East & Asia.
+                        <p className="text-base sm:text-lg text-pretty text-slate-300 leading-relaxed">
+                            System Castle is an AI native global Digital Transformation services provider with experience in Telecom and software development domains in USA,{" "}
+                            <span className="whitespace-nowrap">Middle East &amp; Asia.</span>
                         </p>
                     </motion.div>
                 </motion.div>
@@ -288,7 +289,7 @@ export default function ServicesSectionV3() {
                             },
                         },
                     }}
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                    className="grid grid-cols-1 auto-rows-fr md:grid-cols-2 lg:grid-cols-3 gap-6"
                 >
                     {services.map((service, index) => {
                         const Icon = service.icon;
