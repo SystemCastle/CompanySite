@@ -72,6 +72,18 @@ export default function NavbarV3() {
     const pathname = usePathname();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [activeLink, setActiveLink] = useState("");
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const updateNavbarBackground = () => {
+            setIsScrolled(window.scrollY > 0);
+        };
+
+        updateNavbarBackground();
+        window.addEventListener("scroll", updateNavbarBackground, { passive: true });
+
+        return () => window.removeEventListener("scroll", updateNavbarBackground);
+    }, []);
 
     useEffect(() => {
         if (!isMobileMenuOpen) return;
@@ -134,16 +146,18 @@ export default function NavbarV3() {
     }, [pathname]);
 
     return (
-        <header className="absolute top-0 left-0 w-full z-50">
-            {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> */}
+        <header
+            className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${isScrolled || isMobileMenuOpen ? "bg-slate-950" : "bg-transparent"
+                }`}
+        >
             <div className="page-container">
-                <div className="flex items-center justify-between h-12 lg:h-14">
+                <div className="flex items-center justify-between h-12 lg:h-13">
                     <Link
                         href="/"
                         className="flex items-center gap-2 transition-opacity hover:opacity-85"
                     >
                         <Image
-                            src="/logo.jpeg"
+                            src="/logo.png"
                             alt="System Castle"
                             width={34}
                             height={34}
@@ -174,7 +188,7 @@ export default function NavbarV3() {
 
                                 {link.label === "Services" && (
                                     <div className="absolute left-1/2 top-full pt-1.5 -translate-x-1/2 opacity-0 invisible transition-all duration-200 group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible">
-                                        <div className="w-[640px] overflow-hidden rounded-xl border border-white/10 bg-black/90 backdrop-blur-lg">
+                                        <div className="w-[640px] overflow-hidden rounded-xl border border-white/10 bg-slate-950 backdrop-blur-lg">
                                             <div className="p-3">
                                                 <div className="grid grid-cols-3 gap-1.5">
                                                     {serviceCategories.map((category) => {
@@ -251,7 +265,7 @@ export default function NavbarV3() {
                                 }}
                                 className={`block rounded-lg px-3 py-2.5 text-sm font-medium transition-colors ${activeLink === link.label
                                     ? "text-white"
-                                    : "text-white/70 hover:text-white"
+                                    : "text-white hover:text-white"
                                     }`}
                             >
                                 {link.label}
