@@ -41,7 +41,7 @@ const techRows: TechRow[] = [
             { name: "Entity Framework Core", logoSrc: "dotnet" },
             { name: "Bootstrap", logoSrc: "bootstrap" },
             { name: "REST API", logoSrc: "openapiinitiative" },
-            { name: "YOLOv6", logoSrc: "opencv" },
+            // { name: "YOLOv6", logoSrc: "opencv" },
             { name: "OpenCV", logoSrc: "opencv" },
             { name: "TensorFlow", logoSrc: "tensorflow" },
             { name: "PyTorch", logoSrc: "pytorch" },
