@@ -43,7 +43,7 @@ export default function ContactSectionV1() {
         {
             title: "SYSTEM CASTLE",
             address: "System Castle, 3rd floor, 101 East AKM Fazl-ul-Haq Rd, Block I, G 7/2 Blue Area, Islamabad",
-            phone: "+1-925-214-9198",
+            phone: "+1-925-214-9198, +92-51-8776579",
             email: "info@systemcastle.com",
             flag: "🇦🇪"
         },
